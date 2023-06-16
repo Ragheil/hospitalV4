@@ -146,7 +146,7 @@ if (isset($_POST["submit"])) {
                
 <!--  DEPARTMENT NAMES  ---->
 
-               <div class="col-md-6"><br>
+               <div class="col-md-6">
                   <?php
                       include "db_conn.php";
                       $sql = "SELECT department_name FROM department ";

@@ -54,7 +54,7 @@ if (isset($_POST["submit"])) {
     </div>
 
     <?php
-    $sql = "SELECT * FROM `pat_entry` WHERE id = $id LIMIT 1";
+    $sql = "SELECT * FROM `pat_entry` WHERE patient_no = $id LIMIT 1";
     $result = mysqli_query($conn, $sql);
     $row = mysqli_fetch_assoc($result);
     ?>
