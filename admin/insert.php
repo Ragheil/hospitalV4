@@ -18,7 +18,7 @@ if (isset($_POST["submit"])) {
    
 
    $sql = "INSERT INTO `pat_entry`(`patient_no`, `patient_name`, `age`, `sex`, `address`, `city`, `phone_number`, `entry_date`, `refer_doctor`, `diagnosis`, `department_name`)
-   VALUES ($patient_no,'$patient_name','$age','$sex','$address',$city,'$phone_number','$entry_date','$refer_doctor','$diagnosis','$department_name')";
+   VALUES ('$patient_no','$patient_name','$age','$sex','$address','$city','$phone_number','$entry_date','$refer_doctor','$diagnosis','$department_name')";
 
    $result = mysqli_query($conn, $sql);
 
@@ -56,7 +56,7 @@ if (isset($_POST["submit"])) {
       TAYTOL
    </nav>
 
-   <div class="container">
+   <div class="container"style="border-radius: 48px;background: #bdd6c8; box-shadow:  5px 5px 10px #4c5650,-5px -5px 10px #ffffff;">
       <div class="text-center mb-4">
          <h1>Add Patient Entry</h1>
          <p class="text-muted">Please Complete the form</p>
@@ -105,6 +105,7 @@ if (isset($_POST["submit"])) {
                   <input type="text" class="form-control" name="city" placeholder="City" >
 
                </div>
+
                </div>
 
             <div class="row mb-3">
@@ -136,11 +137,6 @@ if (isset($_POST["submit"])) {
                   </select>
                 </div>
 
-
-
-
-
-
             <div class="row mb-3">
              <div class="col-md-6">
                   <label class="form-label">Diagnosis</label>
@@ -150,13 +146,13 @@ if (isset($_POST["submit"])) {
                
 <!--  DEPARTMENT NAMES  ---->
 
-               <div class="col-md-6">
+               <div class="col-md-6"><br>
                   <?php
                       include "db_conn.php";
                       $sql = "SELECT department_name FROM department ";
                       $result = mysqli_query($conn,$sql);?>
 
-                      <label class="form-label" for="department_name">  Department Name </label>
+                      <label class="form-label" for="department_name"> Department Name </label>
                       <select class="form-select"  name="department_name" id="department_name">
                       <?php while ($rows = mysqli_fetch_array($result)) { ?>
 
@@ -169,7 +165,7 @@ if (isset($_POST["submit"])) {
 
 
                 
-            <div>
+            <div><br>
                <button type="submit" class="btn btn-success" name="submit">Save</button>
                <a href="index.php" class="btn btn-danger">Cancel</a>
             </div>
