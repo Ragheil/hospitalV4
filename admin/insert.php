@@ -56,8 +56,8 @@ if (isset($_POST["submit"])) {
       TAYTOL
    </nav>
 
-   <div class="container"style="border-radius: 48px;background: #bdd6c8; box-shadow:  5px 5px 10px #4c5650,-5px -5px 10px #ffffff;">
-      <div class="text-center mb-4">
+   <div class="container"style="border-radius: 48px;background: #bdd6c8; box-shadow:  5px 5px 10px #4c5650,-5px -5px 10px #44de02; width: 900px;">
+      <div class="text-center mb-4"><br>
          <h1>Add Patient Entry</h1>
          <p class="text-muted">Please Complete the form</p>
       </div>

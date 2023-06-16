@@ -37,7 +37,7 @@ include "db_conn.php";
     ?>
     <a href="insert.php" class="btn btn-dark mb-3">Add New</a>
 
-    <table class="table table-hover text-center">
+    <table class="table table-hover text-center" >
       <thead class="table-dark">
         <tr>
           <th scope="col">Patient No</th>
