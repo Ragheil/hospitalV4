@@ -4,7 +4,6 @@ include "db_conn.php";
 
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js" integrity="sha512-AA1Bzp5Q0K1KanKKmvN/4d3IRKVlv9PYgwFPvm32nPO6QS8yH1HO7LbgB1pgiOxPtfeg5zEn2ba64MUcqJx6CA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
   <meta charset="UTF-8">
@@ -17,12 +16,12 @@ include "db_conn.php";
   <!-- Font Awesome -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
-  <title>PHP CRUD Patient Entry</title>
+  <title> Patient Entry ADMIN</title>
 </head>
 
-<body>
+<body style="background-color: #67d1fe;">
   <nav class="navbar navbar-light justify-content-center fs-3 mb-5" style="background-color: #0094FF;">
-    PHP Complete CRUD Patient Entry
+     Patient list ADMIN SIDE
   </nav>
 
   <div class="container">
@@ -35,7 +34,7 @@ include "db_conn.php";
     </div>';
     }
     ?>
-    <a href="insert.php" class="btn btn-dark mb-3">Add New</a>
+    <a href="insert_pat.php" class="btn btn-dark mb-3">Add New</a>
 
     <table class="table table-hover text-center" >
       <thead class="table-dark">
@@ -73,8 +72,8 @@ include "db_conn.php";
             <td><?php echo $row["diagnosis"] ?></td>
             <td><?php echo $row["department_name"] ?></td>
             <td>
-              <a href="edit.php?patient_no=<?php echo $row["patient_no"] ?>" class="link-dark"><i class="fa-solid fa-pen-to-square fs-3 me-3"></i></a>
-              <a href="delete.php?patient_no=<?php echo $row["patient_no"] ?>" class="btn btn-danger" onclick="confirmation(event)" class="link-dark"><i class="fa-solid fa-trash fs-7"></i></a>
+              <a href="edit_pat.php?patient_no=<?php echo $row["patient_no"] ?>" class="link-dark"><i class="fa-solid fa-pen-to-square fs-3 me-3"></i></a>
+              <a href="delete_pat.php?patient_no=<?php echo $row["patient_no"] ?>" class="btn btn-danger" onclick="confirmation(event)" class="link-dark"><i class="fa-solid fa-trash fs-7"></i></a>
             </td>
           </tr>
         <?php

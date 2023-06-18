@@ -23,7 +23,7 @@ if (isset($_POST["submit"])) {
    $result = mysqli_query($conn, $sql);
 
    if ($result) {
-      header("Location: index.php?msg=New record created successfully");
+      header("Location: patient_list.php?msg=New record created successfully");
    } else {
       echo "Failed: " . mysqli_error($conn);
    }
@@ -151,6 +151,7 @@ if (isset($_POST["submit"])) {
                       include "db_conn.php";
                       $sql = "SELECT department_name FROM department ";
                       $result = mysqli_query($conn,$sql);?>
+                      
 
                       <label class="form-label" for="department_name"> Department Name </label>
                       <select class="form-select"  name="department_name" id="department_name">
@@ -167,7 +168,7 @@ if (isset($_POST["submit"])) {
                 
             <div><br>
                <button type="submit" class="btn btn-success" name="submit">Save</button>
-               <a href="index.php" class="btn btn-danger">Cancel</a>
+               <a href="patient_list.php" class="btn btn-danger">Cancel</a>
             </div>
          </form>
       </div>
