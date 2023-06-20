@@ -20,7 +20,7 @@ if (isset($_POST["submit"])) {
    $sql = "INSERT INTO `pat_entry`(`patient_no`, `patient_name`, `age`, `sex`, `address`, `city`, `phone_number`, `entry_date`, `refer_doctor`, `diagnosis`, `department_name`)
    VALUES ('$patient_no','$patient_name','$age','$sex','$address','$city','$phone_number','$entry_date','$refer_doctor','$diagnosis','$department_name')";
 
-   $result = mysqli_query($conn, $sql);
+   $result = mysqli_query($conn, $sql);   
 
    if ($result) {
       header("Location: patient_list.php?msg=New record created successfully");

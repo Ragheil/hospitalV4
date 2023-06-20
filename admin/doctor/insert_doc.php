@@ -136,12 +136,12 @@ $(document).ready(function() {
              <div class="row md-3">
                <div  class="col-md-4">
                   <label class="form-label">Phone Number</label>
-                  <input type="text" class="form-control" name="phone_no" placeholder="Phone Number" >
+                  <input type="text" class="form-control" name="phone_no" placeholder="Phone Number" maxlength="11" >
 
                </div>
                <div  class="col-md-4">
                   <label class="form-label">Salary</label>
-                  <input type="text" class="form-control" name="salary" placeholder="Salary" >
+                  <input type="text" class="form-control" name="salary" placeholder="Salary" maxlength="6">
                </div>
 
                <div  class="col-md-4">

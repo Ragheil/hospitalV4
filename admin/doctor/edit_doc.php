@@ -36,8 +36,9 @@ if (isset($_POST["submit"])) {
    
 
    $sql = "UPDATE `all_doctors` SET `doctor_name`='$doctor_name', `qualification`='$qualification',
-   `address`='$address', `phone_no`='$phone_no', `phone_no`='$phone_no', `salary`='$salary', 
-   `date_joined`='$date_joined' WHERE doctor_id = '$id'";
+`address`='$address', `phone_no`='$phone_no', `phone_no`='$phone_no', `salary`='$salary', 
+`date_joined`='$date_joined' WHERE doctor_id = '$id'";
+
 
  
    $result = mysqli_query($conn, $sql);
@@ -135,7 +136,7 @@ $(document).ready(function() {
 
                <div class="col-md-3">
                   <label class="form-label">Doctor ID</label>
-                  <input type="text" class="form-control" id="myTextbox" name="doctor_id" placeholder="Doctor ID" value="<?php echo $row['doctor_id'] ?>" maxlength="10" disabled>
+                  <input type="text" class="form-control" id="myTextbox" name="doctor_id" placeholder="Doctor ID" value="<?php echo $row['doctor_id'] ?>"  disabled>
                </div>
 
             
@@ -159,7 +160,7 @@ $(document).ready(function() {
              <div class="row md-3">
                <div  class="col-md-4">
                   <label class="form-label">Phone Number</label>
-                  <input type="text" class="form-control" name="phone_no" placeholder="Phone Number"maxlength="11" value="<?php echo $row['phone_no'] ?>" >
+                  <input type="text" class="form-control" name="phone_no" placeholder="Phone Number"  value="<?php echo $row['phone_no'] ?>" >
 
                </div>
                <div  class="col-md-4">

@@ -68,6 +68,7 @@ background: radial-gradient(circle, rgba(238,174,202,1) 0%, rgba(148,187,233,1) 
             <td><?php echo $row["salary"] ?></td>
             <td><?php echo $row["date_joined"] ?></td>
             <td>
+              <a href="edit_doc.php?doctor_id=<?php echo $row["doctor_id"] ?>" class="btn btn-outline-primary">view<i></i></a>&nbsp&nbsp&nbsp
               <a href="edit_doc.php?doctor_id=<?php echo $row["doctor_id"] ?>" class="link-dark"><i class="fa-solid fa-pen-to-square fs-3 me-3"></i></a>
               <a href="delete_doc.php?doctor_id=<?php echo $row["doctor_id"] ?>" class="btn btn-danger" onclick="confirmation(event)" class="link-dark"><i class="fa-solid fa-trash fs-7"></i></a>
             </td>
