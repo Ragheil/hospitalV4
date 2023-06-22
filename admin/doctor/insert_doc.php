@@ -1,4 +1,26 @@
 <?php
+
+
+ // Allow requests from a specific origin
+ header("Access-Control-Allow-Origin: http://localhost:5174");
+ 
+ // Allow specific HTTP methods
+ header("Access-Control-Allow-Methods: GET, POST, OPTIONS");
+ 
+ // Allow specific headers
+ header("Access-Control-Allow-Headers: Content-Type");
+ 
+ // Allow credentials (if needed)
+ header("Access-Control-Allow-Credentials: true");
+ 
+ // Handle preflight OPTIONS request
+ if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') {
+     // Return early for preflight request
+     exit;
+ }
+ 
+ // Rest of your PHP code goes here...
+ include("db_conn.php");
 include "db_conn.php";
 
 if (isset($_POST["submit"])) {

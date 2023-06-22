@@ -1,6 +1,26 @@
 <?php
-include "db_conn.php";
+ // Allow requests from a specific origin
+ header("Access-Control-Allow-Origin: http://localhost:5174");
+ 
+ // Allow specific HTTP methods
+ header("Access-Control-Allow-Methods: GET, POST, OPTIONS");
+ 
+ // Allow specific headers
+ header("Access-Control-Allow-Headers: Content-Type");
+ 
+ // Allow credentials (if needed)
+ header("Access-Control-Allow-Credentials: true");
+ 
+ // Handle preflight OPTIONS request
+ if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') {
+     // Return early for preflight request
+     exit;
+ }
+ 
+ // Rest of your PHP code goes here...
+ include("db_conn.php");
 ?>
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -20,7 +40,7 @@ include "db_conn.php";
   <title>PHP ADMIN Add Doctor</title>
 </head>
 
-<body style="background: rgb(238,174,202);
+<body  style="background: rgb(238,174,202);
 background: radial-gradient(circle, rgba(238,174,202,1) 0%, rgba(148,187,233,1) 100%);">
   <nav class="navbar navbar-light justify-content-center fs-3 mb-5" style="background-color: #0094FF;">
    VIIIEWWW ALLL DOOOCCCTOOORRR
@@ -37,7 +57,8 @@ background: radial-gradient(circle, rgba(238,174,202,1) 0%, rgba(148,187,233,1) 
     }
     ?>
     <a href="insert_doc.php" class="btn btn-dark mb-3">Add New</a>
-
+    <a href="http://localhost:5174/admindashboard" class="btn btn-dark mb-3">BACK</a>
+    
     <table class="table table-hover text-center" >
       <thead class="table-dark">
         <tr>
@@ -68,9 +89,9 @@ background: radial-gradient(circle, rgba(238,174,202,1) 0%, rgba(148,187,233,1) 
             <td><?php echo $row["salary"] ?></td>
             <td><?php echo $row["date_joined"] ?></td>
             <td>
-              <a href="edit_doc.php?doctor_id=<?php echo $row["doctor_id"] ?>" class="btn btn-outline-primary">view<i></i></a>&nbsp&nbsp&nbsp
-              <a href="edit_doc.php?doctor_id=<?php echo $row["doctor_id"] ?>" class="link-dark"><i class="fa-solid fa-pen-to-square fs-3 me-3"></i></a>
-              <a href="delete_doc.php?doctor_id=<?php echo $row["doctor_id"] ?>" class="btn btn-danger" onclick="confirmation(event)" class="link-dark"><i class="fa-solid fa-trash fs-7"></i></a>
+            <a href="view_all_dc_doc.php?doctor_id=<?php echo $row["doctor_id"] ?>" class="btn btn-dark mb-2">VIEW DOC<i></i></a>&nbsp&nbsp&nbsp    
+            <a href="edit_doc.php?doctor_id=<?php echo $row["doctor_id"] ?>" class="link-dark mb-3"><i class="fa-solid fa-pen-to-square fs-3 me-3"></i></a>
+              <a href="delete_doc.php?doctor_id=<?php echo $row["doctor_id"] ?>" class="btn btn-danger mb-2" onclick="confirmation(event)" class="link-dark"><i class="fa-solid fa-trash fs-7"></i></a>
             </td>
           </tr>
         <?php
