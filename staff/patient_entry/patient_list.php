@@ -88,7 +88,7 @@
     }
     ?>
     <a href="insert_pat.php" class="btn btn-dark mb-3">Add New</a>
-    <a href="http://localhost:3000/admin/patient_entry/pat_main_page.php" class="btn btn-dark mb-3">BACK</a>
+    <a href="http://localhost:5174/staffdashboard" class="btn btn-dark mb-3">BACK</a>
 
     <table class="table table-hover text-center" >
       <thead class="table-dark">

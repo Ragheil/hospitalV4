@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xyz>
+    <department>
+        <Department_Name>Orthopedic</Department_Name>  
+        <department_location>Building 4, Room 2-331</department_location>
+        <Facilities>Orthopedic Clinics</Facilities>
+    </department>
+
+    <department>
+        <Department_Name>Anesthetics</Department_Name>  
+        <department_location>Building 2, Room 2-257</department_location>
+        <Facilities>Building 2, Room 2-257</Facilities>
+    </department>
+
+    <department>
+        <Department_Name>Blood Bank</Department_Name>  
+        <department_location>Building 1, Room 1-124
+</department_location>
+        <Facilities>Blood Storage</Facilities>
+    </department>
+
+    <department>
+        <Department_Name>Cancer Department
+</Department_Name>  
+        <department_location>Building 7, Room 7-257
+</department_location>
+        <Facilities>Cancer Treatment Centers</Facilities>
+    </department>
+
+    <department>
+        <Department_Name>Cardiology</Department_Name>  
+        <department_location>Building 3- Room 3-490
+</department_location>
+        <Facilities>Cardiology Clinics</Facilities>
+    </department>
+
+    <department>
+        <Department_Name>Blood Bank</Department_Name>  
+        <department_location>Building 1, Room 1-124
+</department_location>
+        <Facilities>Blood Storage</Facilities>
+    </department>
+
+    <department>
+        <Department_Name>Corpse</Department_Name>  
+        <department_location>Building 4, Room 4-250
+</department_location>
+        <Facilities>Mortuary/Funeral Home</Facilities>
+    </department>
+	
+    <department>
+        <Department_Name>Emergency</Department_Name>  
+        <department_location>Building 3, Room 3-321
+</department_location>
+        <Facilities>Treatment Rooms</Facilities>
+    </department>
+
+    <department>
+        <Department_Name>Gynecology</Department_Name>  
+        <department_location>Building 6, Room 6-590
+</department_location>
+        <Facilities>Examination Rooms</Facilities>
+    </department>
+
+    <department>
+        <Department_Name>I.C.U.</Department_Name>  
+        <department_location>Building 7, Room 7-107
+</department_location>
+        <Facilities>Isolation Rooms</Facilities>
+    </department>
+
+    <department>
+        <Department_Name>Laboratory</Department_Name>  
+        <department_location>Building 5, Room 5-304
+</department_location>
+        <Facilities>Sample Processing Areas</Facilities>
+    </department>
+
+    <department>
+        <Department_Name>M.R.I</Department_Name>  
+        <department_location>Building 9, Room 3-407
+</department_location>
+        <Facilities>MRI Scanners</Facilities>
+    </department>
+
+     <department>
+        <Department_Name>Neurology</Department_Name>  
+        <department_location>Building 1, Room 1-359
+</department_location>
+        <Facilities>Neurosurgical Operating Rooms</Facilities>
+    </department>
+
+    <department>
+            <Department_Name>Operation Theater</Department_Name>  
+            <department_location>Building 2, Room 3-357
+    </department_location>
+            <Facilities>Sterile Environment</Facilities>
+        </department>
+
+        <department>
+            <Department_Name>Pathology</Department_Name>  
+            <department_location>Building 2, Room 2-245
+    </department_location>
+            <Facilities>Pathology Laboratories</Facilities>
+        </department>
+</xyz>

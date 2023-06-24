@@ -65,7 +65,7 @@ include "db_conn.php";
     }
     ?>
     <a href="pat_dis.php" class="btn btn-dark mb-3">Add New</a>
-    <a href="http://localhost:3000/admin/patient_entry/patient_list.php" class="btn btn-dark mb-3">BACK</a>
+    
 
     <table class="table table-hover text-center" >
       <thead class="table-dark">
