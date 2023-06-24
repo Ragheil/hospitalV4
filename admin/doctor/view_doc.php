@@ -22,6 +22,7 @@
 ?>
 
 
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -43,8 +44,37 @@
 <body  style="background: rgb(238,174,202);
 background: radial-gradient(circle, rgba(238,174,202,1) 0%, rgba(148,187,233,1) 100%);">
   <nav class="navbar navbar-light justify-content-center fs-3 mb-5" style="background-color: #0094FF;">
-   VIIIEWWW ALLL DOOOCCCTOOORRR
+   LIIIST OF ALL DOCTORS
   </nav>
+
+
+<div>
+
+<div><center>
+
+<button class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasWithBothOptions" aria-controls="offcanvasWithBothOptions">Enable both scrolling & backdrop</button>
+
+<div class="offcanvas offcanvas-start" data-bs-scroll="true" tabindex="-1" id="offcanvasWithBothOptions" aria-labelledby="offcanvasWithBothOptionsLabel">
+  <div class="offcanvas-header">
+    <h5 class="offcanvas-title" id="offcanvasWithBothOptionsLabel">THIS IS LIIIST OF ALL DOCTORS</h5>
+    <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+  </div><hr>
+  <div class="offcanvas-body">
+    
+    <p>BACK TO HOME PAGE</p>
+    <a href="http://localhost/hospital4/admin/doctor/main_doc_page.php" class="btn btn-dark mb-3">BACK</a>
+    <p>VIEW ALL REGULAR DOCTORSE</p>
+    <a href="http://localhost:3000/admin/doctor/view_doc_reg.php" class="btn btn-dark mb-3"> REGULAR DOCTORS</a>
+    <p>VIEW ALL DOC ON CALL DOCTORS</p>
+    <a href="http://localhost/hospital4/admin/doctor/view_all_dc_doc.php" class="btn btn-dark mb-3">  DOC ON CALL DOCTORS</a>
+  </div>
+  
+</div>
+</div>
+</center>
+</div>
+
+
 
   <div class="container">
     <?php
@@ -57,8 +87,8 @@ background: radial-gradient(circle, rgba(238,174,202,1) 0%, rgba(148,187,233,1) 
     }
     ?>
     <a href="insert_doc.php" class="btn btn-dark mb-3">Add New</a>
-    <a href="http://localhost:5174/admindashboard" class="btn btn-dark mb-3">BACK</a>
     
+
     <table class="table table-hover text-center" >
       <thead class="table-dark">
         <tr>
@@ -89,7 +119,7 @@ background: radial-gradient(circle, rgba(238,174,202,1) 0%, rgba(148,187,233,1) 
             <td><?php echo $row["salary"] ?></td>
             <td><?php echo $row["date_joined"] ?></td>
             <td>
-            <a href="view_all_dc_doc.php?doctor_id=<?php echo $row["doctor_id"] ?>" class="btn btn-dark mb-2">VIEW DOC<i></i></a>&nbsp&nbsp&nbsp    
+                
             <a href="edit_doc.php?doctor_id=<?php echo $row["doctor_id"] ?>" class="link-dark mb-3"><i class="fa-solid fa-pen-to-square fs-3 me-3"></i></a>
               <a href="delete_doc.php?doctor_id=<?php echo $row["doctor_id"] ?>" class="btn btn-danger mb-2" onclick="confirmation(event)" class="link-dark"><i class="fa-solid fa-trash fs-7"></i></a>
             </td>

@@ -36,12 +36,15 @@
 
   <!-- Font Awesome -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">
 
+<!-- Font Awesome -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <title>PHP ADMIN Add Doctor</title>
 </head>
 
 <body  style="background: rgb(238,174,202);
-background: radial-gradient(circle, rgba(238,174,202,1) 0%, rgba(148,187,233,1) 100%);"><br>
+background: radial-gradient(circle, rgba(238,174,202,1) 0%, rgba(148,187,233,1) 100%);">
   <nav class="navbar navbar-light justify-content-center fs-3 mb-5" style="background-color: #0094FF;">
    MAIN PAGE
   </nav>
@@ -51,19 +54,60 @@ background: radial-gradient(circle, rgba(238,174,202,1) 0%, rgba(148,187,233,1) 
 <br>
 <br>
 <br>
-<center>
-    <div >
-
-<button style="width: 300px; height: 170px; box-shadow:  -14px 14px 28px #2a6d8e,
-             14px -14px 28px #48b9f2; border-radius: 24px;  font-size: 50px;" type="button" class="btn btn-info  btn-lg"><a href="">Regular Doctor</a></button>&emsp;&emsp;&emsp;
-
-<button style="width: 300px; height: 170px; box-shadow:  14px 14px 28px #2a6d8e,
-             -14px -14px 28px #48b9f2; border-radius: 24px; font-size: 50px;" type="button" class="btn btn-info  btn-lg"><a href="view_doc.php">Doctor on Call</a> </button>
-
-
+<div class="container d-flex justify-content-center" >
+<div class="row">
+  <div class="col-sm-6 mb-3 mb-sm-0">
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title">Go to Main Dashboard</h5>
+        <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+        <a href="http://localhost:5173/admindashboard" class="btn btn-primary">Go Now</a>
+      </div>
+    </div>
+  </div>
+  <div class="col-sm-6">
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title">View All Regular Doctor</h5>
+        <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+        <a href="http://localhost/hospital4/admin/doctor/view_doc_reg.php" class="btn btn-primary">Go Now</a>
+      </div>
+    </div>
+  </div>
+</div>&emsp;&emsp;
+<div class="row">
+  <div class="col-sm-6 mb-3 mb-sm-0">
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title">View All Doctor on Call  </h5>
+        <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+        <a href="http://localhost/hospital4/admin/doctor/view_all_dc_doc.php" class="btn btn-primary">Go Now</a>
+      </div>
+    </div>
+  </div>
+  <div class="col-sm-6">
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title">List of All Doctors</h5>
+        <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+        <a href="http://localhost:3000/admin/doctor/view_doc.php" class="btn btn-primary">Go Now</a>
+      </div>
+    </div>
+  </div>
+</div>
 </div>
 
-  </center>
-</body> 
 
+
+
+
+
+
+  
+
+
+
+&emsp;&emsp;&emsp;
+</body> 
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
 </html>

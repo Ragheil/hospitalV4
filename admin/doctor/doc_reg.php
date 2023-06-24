@@ -45,7 +45,7 @@ if (isset($_POST["submit"])) {
 <?php
 if (isset($_POST["submit"])) {
 
-   $department_name  = $_POST['department_name'];
+    
    $doctor_id = $_POST['doctor_id'];
    $doctor_name = $_POST['doctor_name'];
    $qualification = $_POST['qualification'];
@@ -57,16 +57,14 @@ if (isset($_POST["submit"])) {
 
    
 
-   $sql = "UPDATE `all_doctors` SET `doctor_name`='$doctor_name', `qualification`='$qualification',
-`address`='$address', `phone_no`='$phone_no', `phone_no`='$phone_no', `salary`='$salary', 
-`date_joined`='$date_joined' WHERE doctor_id = '$id'";
+   $sql = "UPDATE `all_doctors` SET `salary`='$salary' WHERE doctor_id = '$id'";
 
 
  
    $result = mysqli_query($conn, $sql);
  
    if ($result) {
-     header("Location: view_doc.php?msg=Data updated successfully");
+     header("Location: view_doc_reg.php?msg=Data updated successfully");
    } else {
      echo "Failed: " . mysqli_error($conn);
      echo "SQL Query: " . $sql;
@@ -113,12 +111,12 @@ $(document).ready(function() {
 
 <body style="background: linear-gradient(90deg, #efd5ff 0%, #515ada 100%);">
    <nav class="navbar navbar-light justify-content-center fs-3 mb-5" style="background-color: #88c4f1;">
-     EDIT DOCTOR ADMIN SIDE
+     VIEW REGULAR DOCTOR
    </nav>
 
    <div class="container"style="border-radius: 48px;background: #88c4f1; box-shadow:  5px 5px 10px #4c5650,-5px -5px 10px #0079db; width: 900px;">
       <div class="text-center mb-4"><br>
-         <h1>EDIIT DOOCTOOR</h1>
+         <h1>EDIT REGULAR DOCTOR</h1>
          <p class="text-muted"> Complete the form </p>
       </div>
 
@@ -128,72 +126,23 @@ $(document).ready(function() {
 
              <!--  DEPARTMENT NAMES  ---->
 
-             <div class="col-md-3" >
-                  <?php
-                      include "db_conn.php";
-                      $sql = "SELECT department_name FROM department ";
-                      $result = mysqli_query($conn,$sql);?>
-
-                      <label class="form-label" for="department_name"> Department Name </label>
-                      <select class="form-select"  name="department_name" id="department_name" disabled>
-                      <?php while ($rows = mysqli_fetch_array($result)) { ?>
-
-                      <option value="<?php echo $rows ['department_name']; ?>" > <?php echo $rows ['department_name'];  ?> </option>
-                      <?php 
-                     }
-                     ?>
-                  </select>
-                </div>
-
-
-
-               <div class="col-md-2">
-                  <label for="id" class="form-label">Identity</label>
-                  <select id="myDropdown" class="form-select" name="id" disabled>
-                     <option>choose</option>
-                     <option>DR-</option>
-                     <option>DC-</option>
-                  </select>
-               </div>   
+             
 
                <div class="col-md-3">
-                  <label class="form-label">Doctor ID</label>
+                  <label class="form-label">Doctor Name</label>
                   <input type="text" class="form-control" id="myTextbox" name="doctor_id" placeholder="Doctor ID" value="<?php echo $row['doctor_id'] ?>"  disabled>
                </div>
-
-            
-            <div class="col-md-4 ">
-                  <label class="form-label">Doctor Name</label>   
-                  <input type="text" class="form-control" name="doctor_name" value="<?php echo $row['doctor_name'] ?>" placeholder="Doctor Name">
+               <div class="col-md-3">
+                  <label class="form-label">Doctor ID</label>
+                  <input type="text" class="form-control" id="myTextbox" name="doctor_id" placeholder="Doctor ID" value="<?php echo $row['doctor_name'] ?>"  disabled>
                </div>
 
-               <div class="row mb-3">
-               <div  class="col-md-4">
-                  <label class="form-label">Qualification</label>
-                  <input type="text" class="form-control" name="qualification" value="<?php echo $row['qualification'] ?>" placeholder="Qualification" >
 
-               </div>
-               <div  class="col-md-8">
-                  <label class="form-label">Address</label>
-                  <input type="text" class="form-control" name="address" placeholder="Address" value="<?php echo $row['address'] ?>">
-               </div>
-             </div>
-
-             <div class="row md-3">
-               <div  class="col-md-4">
-                  <label class="form-label">Phone Number</label>
-                  <input type="text" class="form-control" name="phone_no" placeholder="Phone Number"  value="<?php echo $row['phone_no'] ?>" >
-
-               </div>
                <div  class="col-md-4">
                   <label class="form-label">Salary</label>
                   <input type="text" class="form-control" name="salary" placeholder="Salary" value="<?php echo $row['salary'] ?>" >
                </div>
 
-               <div  class="col-md-4">
-                  <label class="form-label">Date Joined</label>
-                  <input type="date" class="form-control" name="date_joined" placeholder="Date Joined" value="<?php echo $row['date_joined'] ?>">
-               </div>
 
 
              </div>
@@ -205,7 +154,7 @@ $(document).ready(function() {
                 
             <div><br>
                <button type="submit" class="btn btn-success" name="submit">Save</button>
-               <a href="view_doc.php" class="btn btn-danger">Cancel</a>
+               <a href="view_doc_reg.php" class="btn btn-danger">Cancel</a>
             </div>
          </form>
       </div>

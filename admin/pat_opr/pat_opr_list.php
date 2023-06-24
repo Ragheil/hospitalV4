@@ -1,10 +1,28 @@
 <?php
-include "db_conn.php";
+ // Allow requests from a specific origin
+ header("Access-Control-Allow-Origin: http://localhost:5174");
+ 
+ // Allow specific HTTP methods
+ header("Access-Control-Allow-Methods: GET, POST, OPTIONS");
+ 
+ // Allow specific headers
+ header("Access-Control-Allow-Headers: Content-Type");
+ 
+ // Allow credentials (if needed)
+ header("Access-Control-Allow-Credentials: true");
+ 
+ // Handle preflight OPTIONS request
+ if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') {
+     // Return early for preflight request
+     exit;
+ }
+ 
+ // Rest of your PHP code goes here...
+ include("db_conn.php");
 ?>
 
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js" integrity="sha512-AA1Bzp5Q0K1KanKKmvN/4d3IRKVlv9PYgwFPvm32nPO6QS8yH1HO7LbgB1pgiOxPtfeg5zEn2ba64MUcqJx6CA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
   <meta charset="UTF-8">
@@ -17,14 +35,20 @@ include "db_conn.php";
   <!-- Font Awesome -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
-  <title>PHP ADMIN Add Doctor</title>
+  <title> PATIENT pat</title>
 </head>
 
-<body style="background: rgb(238,174,202);
-background: radial-gradient(circle, rgba(238,174,202,1) 0%, rgba(148,187,233,1) 100%);">
+<body style="background-color: #67d1fe;">
   <nav class="navbar navbar-light justify-content-center fs-3 mb-5" style="background-color: #0094FF;">
-   VIIIEWWW ALLL DOOOCCCTOOORRR
+     PATIENT pat opr
   </nav>
+
+
+<!-- -->
+
+
+
+<!-- -->
 
   <div class="container">
     <?php
@@ -36,41 +60,47 @@ background: radial-gradient(circle, rgba(238,174,202,1) 0%, rgba(148,187,233,1) 
     </div>';
     }
     ?>
-    <a href="insert_doc.php" class="btn btn-dark mb-3">Add New</a>
+    <a href="insert_pat_opt.php" class="btn btn-dark mb-3">Add New</a>
+    <a href="http://localhost:3000/admin/patient_entry/pat_main_page.php" class="btn btn-dark mb-3">BACK</a>
 
     <table class="table table-hover text-center" >
       <thead class="table-dark">
         <tr>
-          <th scope="col">Department Name</th>
-          <th scope="col">Doctor ID</th>
-          <th scope="col">Doctor Name</th>
-          <th scope="col">Qualification</th>
-          <th scope="col">Address</th>
-          <th scope="col">Phone Number</th>
-          <th scope="col">Salary</th>
-          <th scope="col">Date Joined</th>
+          <th scope="col">Patient No</th>
+          <th scope="col">Date of Admission</th>
+          <th scope="col">Date of Operationp</th>
+          <th scope="col">Doctor No</th>
+          <th scope="col">No of Operation Theater</th>
+          <th scope="col">Type of Operation</th>
+          <th scope="col">Patient Condition Before</th>
+          <th scope="col">Patient Condition After</th>
+          <th scope="col">Treatment Advice</th>
           <th scope="col">Action</th>
         </tr>
       </thead>
       <tbody>
         <?php
-        $sql = "SELECT * FROM `all_doctors`";
+        $sql = "SELECT * FROM `pat_opr`";
         $result = mysqli_query($conn, $sql);
         while ($row = mysqli_fetch_assoc($result)) {
         ?>
           <tr>
-            <td><?php echo $row["department_name"] ?></td>
-            <td><?php echo $row["doctor_id"] ?></td>
-            <td><?php echo $row["doctor_name"] ?></td>
-            <td><?php echo $row["qualification"] ?></td>
-            <td><?php echo $row["address"] ?></td>
-            <td><?php echo $row["phone_no"] ?></td>
-            <td><?php echo $row["salary"] ?></td>
-            <td><?php echo $row["date_joined"] ?></td>
+            <td><?php echo $row["patient_no"] ?></td>
+            <td><?php echo $row["date_of_admission"] ?></td>
+            <td><?php echo $row["date_of_operation"] ?></td>
+            <td><?php echo $row["doctor_no"] ?></td>
+            <td><?php echo $row["no_of_operation_theater"] ?></td>
+            <td><?php echo $row["type_of_operation"] ?></td>
+            <td><?php echo $row["patient_condition_before_opr"] ?></td>
+            <td><?php echo $row["patient_condition_after_opr"] ?></td>
+            <td><?php echo $row["treatment_advice"] ?></td>
+            
+
+            
             <td>
-              <a href="edit_doc.php?doctor_id=<?php echo $row["doctor_id"] ?>" class="link-dark"><i class="fa-solid fa-pen-to-square fs-3 me-3"></i></a>
-              <a href="delete_doc.php?doctor_id=<?php echo $row["doctor_id"] ?>" class="btn btn-danger" onclick="confirmation(event)" class="link-dark"><i class="fa-solid fa-trash fs-7"></i></a>
-              <a href="edit_doc.php?doctor_id=<?php echo $row["doctor_id"] ?>" class="link-dark"><i class="fa-solid fa-pen-to-square fs-3 me-3"></i></a>
+            <a href="edit_opr.php?patient_no=<?php echo $row['patient_no']; ?>" class="link-dark"><i class="fa-solid fa-pen-to-square fs-3 me-3"></i></a>
+              <a href="delete_opr.php" class="btn btn-danger" onclick="confirmation(event)" class="link-dark"><i class="fa-solid fa-trash fs-7"></i></a>
+           
             </td>
           </tr>
         <?php

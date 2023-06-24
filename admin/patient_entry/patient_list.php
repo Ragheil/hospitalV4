@@ -1,5 +1,24 @@
 <?php
-include "db_conn.php";
+ // Allow requests from a specific origin
+ header("Access-Control-Allow-Origin: http://localhost:5174");
+ 
+ // Allow specific HTTP methods
+ header("Access-Control-Allow-Methods: GET, POST, OPTIONS");
+ 
+ // Allow specific headers
+ header("Access-Control-Allow-Headers: Content-Type");
+ 
+ // Allow credentials (if needed)
+ header("Access-Control-Allow-Credentials: true");
+ 
+ // Handle preflight OPTIONS request
+ if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') {
+     // Return early for preflight request
+     exit;
+ }
+ 
+ // Rest of your PHP code goes here...
+ include("db_conn.php");
 ?>
 
 <!DOCTYPE html>
@@ -24,6 +43,40 @@ include "db_conn.php";
      Patient list ADMIN SIDE
   </nav>
 
+
+<!-- -->
+<div>
+
+<div><center>
+
+<button class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasWithBothOptions" aria-controls="offcanvasWithBothOptions">Special Action</button>
+
+<div class="offcanvas offcanvas-start" data-bs-scroll="true" tabindex="-1" id="offcanvasWithBothOptions" aria-labelledby="offcanvasWithBothOptionsLabel">
+  <div class="offcanvas-header">
+    <h5 class="offcanvas-title" id="offcanvasWithBothOptionsLabel">THIS IS LIIIST OF ALL PATIENTS</h5>
+    <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+  </div><hr>
+  <div class="offcanvas-body">
+    
+    <p>BACK TO HOME PAGE</p>
+    <a href="http://localhost:3000/admin/patient_entry/pat_main_page.php" class="btn btn-dark mb-3">BACK</a>
+    <p>ADD ADMIT PATIENT</p>
+    <a href="http://localhost:3000/admin/pat_admit/list_pat_admit.php" class="btn btn-dark mb-3"> VIEW ADMITTED PATIENT</a>
+    <p>VIEW ALL PATIENT CHECK UP</p>
+    <a href="http://localhost:3000/admin/pat_checkUp/pat_chk.php" class="btn btn-dark mb-3"> PATIENT CHECK UP</a>
+    <p>VIEW DISCHARGED PATIENT</p>
+    <a href="http://localhost:3000/admin/pat_dis/list_pat_dis.php" class="btn btn-dark mb-3"> DISCHARGED PATIENT</a>
+    <p>VIEW ALL DOC ON CALL DOCTORS</p>
+    <a href="http://localhost:3000/admin/pat_admit/list_pat_admit.php" class="btn btn-dark mb-3"> ADDMITTED PATIENT</a>
+  </div>
+  
+</div>
+</div>
+</center>
+</div>
+
+<!-- -->
+
   <div class="container">
     <?php
     if (isset($_GET["msg"])) {
@@ -35,6 +88,7 @@ include "db_conn.php";
     }
     ?>
     <a href="insert_pat.php" class="btn btn-dark mb-3">Add New</a>
+    <a href="http://localhost:3000/admin/patient_entry/pat_main_page.php" class="btn btn-dark mb-3">BACK</a>
 
     <table class="table table-hover text-center" >
       <thead class="table-dark">
