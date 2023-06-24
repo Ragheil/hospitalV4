@@ -1,5 +1,24 @@
 <?php
-include "db_conn.php";
+ // Allow requests from a specific origin
+ header("Access-Control-Allow-Origin: http://localhost:5174");
+ 
+ // Allow specific HTTP methods
+ header("Access-Control-Allow-Methods: GET, POST, OPTIONS");
+ 
+ // Allow specific headers
+ header("Access-Control-Allow-Headers: Content-Type");
+ 
+ // Allow credentials (if needed)
+ header("Access-Control-Allow-Credentials: true");
+ 
+ // Handle preflight OPTIONS request
+ if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') {
+     // Return early for preflight request
+     exit;
+ }
+ 
+ // Rest of your PHP code goes here...
+ include("db_conn.php");
 ?>
 
 <!DOCTYPE html>
@@ -16,12 +35,12 @@ include "db_conn.php";
   <!-- Font Awesome -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
-  <title> LIST OF ADDMITTED PATIENT</title>
+  <title> ALL ROOM DETAILES</title>
 </head>
 
 <body style="background-color: #67d1fe;">
   <nav class="navbar navbar-light justify-content-center fs-3 mb-5" style="background-color: #0094FF;">
-  LIST OF ADDMITTED PATIENT
+  ALL ROOM DETAILES
   </nav>
   <div><center>
 
@@ -35,24 +54,34 @@ include "db_conn.php";
   <div class="offcanvas-body">
     
     <p>BACK TO HOME PAGE</p>
-    <a href="http://localhost:3000/admin/patient_entry/pat_main_page.php" class="btn btn-dark mb-3">BACK</a>
+    <a href="http://localhost:5173/admindashboard" class="btn btn-dark mb-3">BACK</a>
     <p>ADD ADMIT PATIENT</p>
     <a href="http://localhost:3000/admin/pat_admit/list_pat_admit.php" class="btn btn-dark mb-3"> VIEW ADMITTED PATIENT</a>
     <p>VIEW ALL PATIENT CHECK UP</p>
     <a href="http://localhost:3000/admin/pat_checkUp/pat_chk.php" class="btn btn-dark mb-3"> PATIENT CHECK UP</a>
     <p>VIEW DISCHARGED PATIENT</p>
     <a href="http://localhost:3000/admin/pat_dis/list_pat_dis.php" class="btn btn-dark mb-3"> DISCHARGED PATIENT</a>
-    <p>VIEW ALL PAT OPR</p>
-    <a href="http://localhost:3000/admin/pat_admit/list_pat_admit.php" class="btn btn-dark mb-3"> PAT OPR</a>
-    <p>VIEW ALL PAT REG</p>
-    <a href="http://localhost:3000/admin/pat_reg/pat_reg.php" class="btn btn-dark mb-3"> PAT REG</a>
-  
+    <p>VIEW ALL DOC ON CALL DOCTORS</p>
+    <a href="http://localhost:3000/admin/pat_admit/list_pat_admit.php" class="btn btn-dark mb-3"> ADDMITTED PATIENT</a>
+ <br><hr>
+    <p>VIEW NOT VACANT ROOM</p>
+    <a href="http://localhost:3000/admin/room_details/not_vacant_room.php" class="btn btn-dark mb-3"> NOT VACANT ROOM</a>
+    <p>VIEW VACANT ROOM</p>
+    <a href="http://localhost:3000/admin/room_details/vacant_rooms.php" class="btn btn-dark mb-3">  VACANT ROOM</a>
+ <br><hr>
 
 </div>
   
 </div>
 </div>
 </center>
+
+<!-- -->
+
+
+
+<!-- -->
+
   <div class="container">
     <?php
     if (isset($_GET["msg"])) {
@@ -63,47 +92,38 @@ include "db_conn.php";
     </div>';
     }
     ?>
-    <a href="http://localhost/hospital4/admin/pat_admit/admit.php" class="btn btn-dark mb-3">Add New</a>
-   
+    <a href="insert.php" class="btn btn-dark mb-3">Add New</a>
 
+   
     <table class="table table-hover text-center" >
       <thead class="table-dark">
         <tr>
-          <th scope="col">Patient No</th>
-          <th scope="col">Advance Payment</th>
-          <th scope="col">Mode of Payment</th>
-          <th scope="col">Room No</th>
-          <th scope="col">Department Name</th>
-          <th scope="col">Date of Admission</th>
-          <th scope="col">Initial Condition</th>
-          <th scope="col">Diagnosis</th>
-          <th scope="col">Treatment</th>
-          <th scope="col">Doctor No</th>
-          <th scope="col">Attendant Name</th>
+          
+          <th scope="col">Room no</th>
+          <th scope="col">Room type</th>
+          <th scope="col">Status</th>
           <th scope="col">Action</th>
         </tr>
       </thead>
       <tbody>
         <?php
-        $sql = "SELECT * FROM `pat_admit`";
+        $sql = "SELECT * FROM `room_details`";
         $result = mysqli_query($conn, $sql);
         while ($row = mysqli_fetch_assoc($result)) {
         ?>
           <tr>
-            <td><?php echo $row["patient_no"] ?></td>
-            <td><?php echo $row["advance_payment"] ?></td>
-            <td><?php echo $row["mode_of_payment"] ?></td>
+           
             <td><?php echo $row["room_no"] ?></td>
-            <td><?php echo $row["department_name"] ?></td>
-            <td><?php echo $row["date_of_admission"] ?></td>
-            <td><?php echo $row["initial_condition"] ?></td>
-            <td><?php echo $row["diagnosis"] ?></td>
-            <td><?php echo $row["treatment"] ?></td>
-            <td><?php echo $row["doctor_no"] ?></td>
-            <td><?php echo $row["attendant_name"] ?></td>
+            <td><?php echo $row["room_type"] ?></td>
+            <td><?php echo $row["status"] ?></td>
+            
+
+            
             <td>
-              <a href="edit_admit.php?patient_no=<?php echo $row["patient_no"] ?>" class="link-dark"><i class="fa-solid fa-pen-to-square fs-3 me-3"></i></a>
-              <a href="delete_pat.php?patient_no=<?php echo $row["patient_no"] ?>" class="btn btn-danger" onclick="confirmation(event)" class="link-dark"><i class="fa-solid fa-trash fs-7"></i></a>
+            <a href="edit_room.php?room_no=<?php echo $row['room_no']; ?>" class="link-dark"><i class="fa-solid fa-pen-to-square fs-2 me-3"></i></a>
+
+             
+             
             </td>
           </tr>
         <?php

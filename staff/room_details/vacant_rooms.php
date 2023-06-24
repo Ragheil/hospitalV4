@@ -35,43 +35,14 @@
   <!-- Font Awesome -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
-  <title> PATIENT pat</title>
-</head>
+  <title> VACANT</title>
+</head> 
 
 <body style="background-color: #67d1fe;">
   <nav class="navbar navbar-light justify-content-center fs-3 mb-5" style="background-color: #0094FF;">
-     PATIENT pat opr
+      VACANT
   </nav>
-  <div><center>
 
-<button class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasWithBothOptions" aria-controls="offcanvasWithBothOptions">Special Action</button>
-
-<div class="offcanvas offcanvas-start" data-bs-scroll="true" tabindex="-1" id="offcanvasWithBothOptions" aria-labelledby="offcanvasWithBothOptionsLabel">
-  <div class="offcanvas-header">
-    <h5 class="offcanvas-title" id="offcanvasWithBothOptionsLabel">THIS IS LIIIST OF ALL PATIENTS</h5>
-    <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-  </div><hr>
-  <div class="offcanvas-body">
-    
-    <p>BACK TO HOME PAGE</p>
-    <a href="http://localhost:3000/admin/patient_entry/pat_main_page.php" class="btn btn-dark mb-3">BACK</a>
-    <p>ADD ADMIT PATIENT</p>
-    <a href="http://localhost:3000/admin/pat_admit/list_pat_admit.php" class="btn btn-dark mb-3"> VIEW ADMITTED PATIENT</a>
-    <p>VIEW ALL PATIENT CHECK UP</p>
-    <a href="http://localhost:3000/admin/pat_checkUp/pat_chk.php" class="btn btn-dark mb-3"> PATIENT CHECK UP</a>
-    <p>VIEW DISCHARGED PATIENT</p>
-    <a href="http://localhost:3000/admin/pat_dis/list_pat_dis.php" class="btn btn-dark mb-3"> DISCHARGED PATIENT</a>
-    <p>VIEW ALL PAT OPR</p>
-    <a href="http://localhost:3000/admin/pat_admit/list_pat_admit.php" class="btn btn-dark mb-3"> PAT OPR</a>
-    <p>VIEW ALL PAT REG</p>
-    <a href="http://localhost:3000/admin/pat_reg/pat_reg.php" class="btn btn-dark mb-3"> PAT REG</a>
-  
-
-</div>
-  
-</div>
-</div>
-</center>
 
 <!-- -->
 
@@ -90,46 +61,38 @@
     }
     ?>
     <a href="insert_pat_opt.php" class="btn btn-dark mb-3">Add New</a>
-    <a href="http://localhost:3000/admin/patient_entry/pat_main_page.php" class="btn btn-dark mb-3">BACK</a>
+    <a href="all_room.php" class="btn btn-dark mb-3">BACK</a>
+    
 
     <table class="table table-hover text-center" >
       <thead class="table-dark">
         <tr>
-          <th scope="col">Patient No</th>
-          <th scope="col">Date of Admission</th>
-          <th scope="col">Date of Operationp</th>
-          <th scope="col">Doctor No</th>
-          <th scope="col">No of Operation Theater</th>
-          <th scope="col">Type of Operation</th>
-          <th scope="col">Patient Condition Before</th>
-          <th scope="col">Patient Condition After</th>
-          <th scope="col">Treatment Advice</th>
+          
+          <th scope="col">Room no</th>
+          <th scope="col">Room type</th>
+          <th scope="col">Status</th>
           <th scope="col">Action</th>
         </tr>
       </thead>
       <tbody>
         <?php
-        $sql = "SELECT * FROM `pat_opr`";
+        $sql = "CALL GetVacant('Y');";
         $result = mysqli_query($conn, $sql);
         while ($row = mysqli_fetch_assoc($result)) {
         ?>
           <tr>
-            <td><?php echo $row["patient_no"] ?></td>
-            <td><?php echo $row["date_of_admission"] ?></td>
-            <td><?php echo $row["date_of_operation"] ?></td>
-            <td><?php echo $row["doctor_no"] ?></td>
-            <td><?php echo $row["no_of_operation_theater"] ?></td>
-            <td><?php echo $row["type_of_operation"] ?></td>
-            <td><?php echo $row["patient_condition_before_opr"] ?></td>
-            <td><?php echo $row["patient_condition_after_opr"] ?></td>
-            <td><?php echo $row["treatment_advice"] ?></td>
+           
+            <td><?php echo $row["room_no"] ?></td>
+            <td><?php echo $row["room_type"] ?></td>
+            <td><?php echo $row["status"] ?></td>
             
 
             
             <td>
-            <a href="edit_opr.php?patient_no=<?php echo $row['patient_no']; ?>" class="link-dark"><i class="fa-solid fa-pen-to-square fs-3 me-3"></i></a>
-              <a href="delete_opr.php" class="btn btn-danger" onclick="confirmation(event)" class="link-dark"><i class="fa-solid fa-trash fs-7"></i></a>
-           
+            <a href="edit_room.php?room_no=<?php echo $row['room_no']; ?>" class="link-dark"><i class="fa-solid fa-pen-to-square fs-2 me-3"></i></a>
+
+              <a href="delete.php?room_no=<?php echo $row['room_no']; ?>" class="btn btn-danger" onclick="confirmation(event)" class="link-dark"><i class="fa-solid fa-trash fs-7"></i></a>
+             
             </td>
           </tr>
         <?php

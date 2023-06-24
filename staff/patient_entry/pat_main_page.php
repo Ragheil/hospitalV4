@@ -39,15 +39,13 @@
 
   <title>PATEINT MAIN PAGE</title>
 </head>
+
 <body  style="background: rgb(238,174,202);
 background: radial-gradient(circle, rgba(238,1S74,202,1) 0%, rgba(148,187,233,1) 100%);"><br>
   <nav class="navbar navbar-light justify-content-center fs-3 mb-5" style="background-color: #0094FF;">
    PATIENT MAIN PAGE
-  </nav><center>
-    <h2>BACK TO DASHBOARD</h2>
-  <a href="http://localhost:5173/admindashboard" class="btn btn-primary">VIEW</a></a>
-<hr>
-  </center><br> 
+  </nav>
+<a href="http://localhost:5173/admindashboard" class="btn btn-primary">VIEW</a></a>
 <center>
     
 <div class="row row-cols-1 row-cols-md-4 g-4">

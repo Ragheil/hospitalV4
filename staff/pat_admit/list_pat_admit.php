@@ -103,8 +103,7 @@ include "db_conn.php";
             <td><?php echo $row["attendant_name"] ?></td>
             <td>
               <a href="edit_admit.php?patient_no=<?php echo $row["patient_no"] ?>" class="link-dark"><i class="fa-solid fa-pen-to-square fs-3 me-3"></i></a>
-              <a href="delete_pat.php?patient_no=<?php echo $row["patient_no"] ?>" class="btn btn-danger" onclick="confirmation(event)" class="link-dark"><i class="fa-solid fa-trash fs-7"></i></a>
-            </td>
+            
           </tr>
         <?php
         }

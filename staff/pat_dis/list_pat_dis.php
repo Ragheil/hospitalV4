@@ -16,12 +16,12 @@ include "db_conn.php";
   <!-- Font Awesome -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
-  <title> LIST OF ADDMITTED PATIENT</title>
+  <title>  PATIENT DISCHARGED </title>
 </head>
 
 <body style="background-color: #67d1fe;">
   <nav class="navbar navbar-light justify-content-center fs-3 mb-5" style="background-color: #0094FF;">
-  LIST OF ADDMITTED PATIENT
+  PATIENT DISCHARGED
   </nav>
   <div><center>
 
@@ -53,6 +53,7 @@ include "db_conn.php";
 </div>
 </div>
 </center>
+
   <div class="container">
     <?php
     if (isset($_GET["msg"])) {
@@ -63,47 +64,40 @@ include "db_conn.php";
     </div>';
     }
     ?>
-    <a href="http://localhost/hospital4/admin/pat_admit/admit.php" class="btn btn-dark mb-3">Add New</a>
-   
+    <a href="pat_dis.php" class="btn btn-dark mb-3">Add New</a>
+    <a href="http://localhost:3000/admin/patient_entry/patient_list.php" class="btn btn-dark mb-3">BACK</a>
 
     <table class="table table-hover text-center" >
       <thead class="table-dark">
         <tr>
           <th scope="col">Patient No</th>
-          <th scope="col">Advance Payment</th>
+          <th scope="col">Treatment Given</th>
+          <th scope="col">Treatment Advice</th>
+          <th scope="col">Payment Made</th>
           <th scope="col">Mode of Payment</th>
-          <th scope="col">Room No</th>
-          <th scope="col">Department Name</th>
-          <th scope="col">Date of Admission</th>
-          <th scope="col">Initial Condition</th>
-          <th scope="col">Diagnosis</th>
-          <th scope="col">Treatment</th>
-          <th scope="col">Doctor No</th>
-          <th scope="col">Attendant Name</th>
+          <th scope="col">Date of Discharged</th>
+          
+          
           <th scope="col">Action</th>
         </tr>
       </thead>
       <tbody>
         <?php
-        $sql = "SELECT * FROM `pat_admit`";
+        $sql = "SELECT * FROM `pat_dis` ";
         $result = mysqli_query($conn, $sql);
         while ($row = mysqli_fetch_assoc($result)) {
         ?>
           <tr>
             <td><?php echo $row["patient_no"] ?></td>
-            <td><?php echo $row["advance_payment"] ?></td>
+            <td><?php echo $row["treatment_given"] ?></td>
+            <td><?php echo $row["treatment_advice"] ?></td>
+            <td><?php echo $row["payment_made"] ?></td>
             <td><?php echo $row["mode_of_payment"] ?></td>
-            <td><?php echo $row["room_no"] ?></td>
-            <td><?php echo $row["department_name"] ?></td>
-            <td><?php echo $row["date_of_admission"] ?></td>
-            <td><?php echo $row["initial_condition"] ?></td>
-            <td><?php echo $row["diagnosis"] ?></td>
-            <td><?php echo $row["treatment"] ?></td>
-            <td><?php echo $row["doctor_no"] ?></td>
-            <td><?php echo $row["attendant_name"] ?></td>
+            <td><?php echo $row["date_of_discharged"] ?></td>
+            
             <td>
-              <a href="edit_admit.php?patient_no=<?php echo $row["patient_no"] ?>" class="link-dark"><i class="fa-solid fa-pen-to-square fs-3 me-3"></i></a>
-              <a href="delete_pat.php?patient_no=<?php echo $row["patient_no"] ?>" class="btn btn-danger" onclick="confirmation(event)" class="link-dark"><i class="fa-solid fa-trash fs-7"></i></a>
+              <a href="edit.php?patient_no=<?php echo $row["patient_no"] ?>" class="link-dark"><i class="fa-solid fa-pen-to-square fs-3 me-3"></i></a>
+            
             </td>
           </tr>
         <?php
