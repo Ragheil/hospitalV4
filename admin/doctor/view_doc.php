@@ -65,11 +65,8 @@ background: radial-gradient(circle, rgba(238,174,202,1) 0%, rgba(148,187,233,1) 
   </div><hr>
   <div class="offcanvas-body">
     
-    <p>BACK TO HOME PAGE</p>
-    <a href="http://localhost/hospital4/admin/doctor/main_doc_page.php" class="btn btn-dark mb-3">BACK</a>
-    <p>VIEW ALL REGULAR DOCTORSE</p>
+    <a href="http://localhost/hospital4/admin/doctor/main_doc_page.php" class="btn btn-dark mb-3">MAIN PAGE</a><br>
     <a href="http://localhost:3000/admin/doctor/view_doc_reg.php" class="btn btn-dark mb-3"> REGULAR DOCTORS</a>
-    <p>VIEW ALL DOC ON CALL DOCTORS</p>
     <a href="http://localhost/hospital4/admin/doctor/view_all_dc_doc.php" class="btn btn-dark mb-3">  DOC ON CALL DOCTORS</a>
   </div>
   
