@@ -60,7 +60,7 @@ background: radial-gradient(circle, rgba(238,174,202,1) 0%, rgba(148,187,233,1) 
     <div class="card">
       <div class="card-body">
         <h5 class="card-title">Go to Main Dashboard</h5>
-        <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+        <p class="card-text">                            </p>
         <a href="http://localhost:5173/admindashboard" class="btn btn-primary">Go Now</a>
       </div>
     </div>

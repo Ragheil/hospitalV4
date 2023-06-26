@@ -37,14 +37,17 @@
 
   <!-- Font Awesome -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-
   <title>PHP ADMIN Add Doctor</title>
 </head>
 
+
 <body  style="background: rgb(238,174,202);
 background: radial-gradient(circle, rgba(238,174,202,1) 0%, rgba(148,187,233,1) 100%);">
-  <nav class="navbar navbar-light justify-content-center fs-3 mb-5" style="background-color: #0094FF;">
-   LIIIST OF ALL DOCTORS
+  <nav class="navigation">
+    <button class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasWithBothOptions" aria-controls="offcanvasWithBothOptions"><i class="fa-solid fa-bars"></i></button>
+  </nav>
+  <nav class="navbar navbar-light justify-content-center fs-3 mb-5">
+   LIST OF ALL DOCTORS
   </nav>
 
 
@@ -52,11 +55,12 @@ background: radial-gradient(circle, rgba(238,174,202,1) 0%, rgba(148,187,233,1) 
 
 <div><center>
 
-<button class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasWithBothOptions" aria-controls="offcanvasWithBothOptions">Enable both scrolling & backdrop</button>
+
 
 <div class="offcanvas offcanvas-start" data-bs-scroll="true" tabindex="-1" id="offcanvasWithBothOptions" aria-labelledby="offcanvasWithBothOptionsLabel">
   <div class="offcanvas-header">
-    <h5 class="offcanvas-title" id="offcanvasWithBothOptionsLabel">THIS IS LIIIST OF ALL DOCTORS</h5>
+    
+    <h5 class="offcanvas-title" id="offcanvasWithBothOptionsLabel">LIST OF ALL DOCTORS</h5>
     <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
   </div><hr>
   <div class="offcanvas-body">
@@ -87,6 +91,8 @@ background: radial-gradient(circle, rgba(238,174,202,1) 0%, rgba(148,187,233,1) 
     }
     ?>
     <a href="insert_doc.php" class="btn btn-dark mb-3">Add New</a>
+    <a href="http://localhost:3000/admin/doctor/view_doc_reg.php" class="btn btn-dark mb-3">Regular Doctors</a>
+    <a href="http://localhost/hospital4/admin/doctor/view_all_dc_doc.php" class="btn btn-dark mb-3">Call-On Doctors</a>
     
 
     <table class="table table-hover text-center" >
