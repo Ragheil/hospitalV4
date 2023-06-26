@@ -39,70 +39,117 @@
 
   <title>PATEINT MAIN PAGE</title>
 </head>
-<body  style="background: rgb(238,174,202);
-background: radial-gradient(circle, rgba(238,1S74,202,1) 0%, rgba(148,187,233,1) 100%);"><br>
-  <nav class="navbar navbar-light justify-content-center fs-3 mb-5" style="background-color: #0094FF;">
-   PATIENT MAIN PAGE
-  </nav><center>
-    <h2>BACK TO DASHBOARD</h2>
-  <a href="http://localhost:5173/admindashboard" class="btn btn-primary">VIEW</a></a>
-<hr>
-  </center><br> 
-<center>
+<body  style="background-image: url(/patdash.png);background-size: cover;">
+<nav class="navbar navbar-light justify-content-center fs-3 mb-5" style="background-color: #3d72b4; color: white;">
+  PATIENT MAIN PAGE
+</nav>
+  
+  <br>
+ 
     
-<div class="row row-cols-1 row-cols-md-4 g-4">
-  <div class="col">
-    <div class="card h-100" >
-      <img src="pat_entry.png.jpg"pat class="card-img-top" alt="...">
+<div class="container d-flex justify-content-center" >
+<div class="row">
+  <div class="col-sm-6 mb-3 mb-sm-0">
+    <div class="card">
+    <img src="/DASHBORAD.png" style="max-width: 50vh;" class="card-img-top" alt="DASHBORAD">
       <div class="card-body">
-        <h5 class="card-title">PATIENT LIST ONLY</h5>
-        <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-      </div>
-      <div class="card-footer">
-      <a href="http://localhost:3000/admin/patient_entry/patient_list.php" class="btn btn-primary">Patient List</a>
-      </div>
-    </div>
-  </div>    
-  <div class="col">
-    <div class="card h-100">
-      <img src="pat_entry.png.jpg" class="card-img-top" alt="...">
-      <div class="card-body">
-        <h5 class="card-title">List of All Admitted Patients</h5>
-        <p class="card-text">Show the List of All Admitted Patients</p>
-      </div>
-      <div class="card-footer">
-      <a href="http://localhost/hospital4/admin/pat_admit/list_pat_admit.php" class="btn btn-primary">VIEW</a>
+        <h2 class="card-title"><p>Go to Main Dashboard</p> </h2>
+        <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+        <a href="http://localhost:5173/admindashboard" class="btn btn-primary">View</a>
       </div>
     </div>
   </div>
-  <div class="col">
-    <div class="card h-100">
-      <img src="pat_entry.png.jpg" class="card-img-top" alt="...">
+  <div class="col-sm-6">
+    <div class="card">
+      <br>
+    <center><img src="/plist.png" style="max-width: 17vh; "  class="card-img-top; " alt="DASHBORAD"></center>
       <div class="card-body">
-        <h5 class="card-title">Card title</h5>
-        <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This card has even longer content than the first to show that equal height action.</p>
-      </div>
-      <div class="card-footer">
-      <a href="#" class="btn btn-primary">Go somewhere</a>
+        <h2 class="card-title">View All&emsp;&emsp; Patient List</h2>
+        <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+        <a href="http://localhost:3000/admin/patient_entry/patient_list.php" class="btn btn-primary">View</a>
       </div>
     </div>
   </div>
-  <div class="col">
-    <div class="card h-100">
-      <img src="pat_entry.png.jpg" class="card-img-top" alt="...">
+</div>&emsp;&emsp;
+<div class="row">
+<div class="col-sm-6">
+    <div class="card"><br>
+    <center> <img src="/pat_check.png" style="max-width: 29vh;" class="card-img-top" alt="DASHBORAD"></center>
       <div class="card-body">
-        <h5 class="card-title">Card title</h5>
-        <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This card has even longer content than the first to show that equal height action.</p>
-      </div>
-      <div class="card-footer">
-      <a href="#" class="btn btn-primary">Go somewhere</a>
+        <h2 class="card-title">Patient Check Up  </h2>
+        <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+        <a href="http://localhost:3000/admin/pat_checkUp/pat_chk.php" class="btn btn-primary">View</a>
       </div>
     </div>
   </div>
-
+  <div class="col-sm-6">
+    <div class="card"><br>
+    <center> <img src="/patreg.png" style="max-width: 29vh;" class="card-img-top" alt="DASHBORAD"></center>
+      <div class="card-body">
+        <h2 class="card-title">Regular Patients</h2><br>
+        <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+        <a href="http://localhost:3000/admin/pat_reg/pat_reg.php" class="btn btn-primary">View</a>
+      </div>
+    </div>
+  </div>  
 </div>
+</div>
+<br>
+<br>
 
-  </center>
+
+
+
+<div class="container d-flex justify-content-center" >
+<div class="row">
+  <div class="col-sm-6 mb-3 mb-sm-0">
+    <div class="card"><br>
+    <center> <img src="/patopr.png" style="max-width: 20vh;" class="card-img-top" alt="DASHBORAD"></center>
+      <div class="card-body">
+        <h2 class="card-title"><p>Patient is Operated</p> </h2>
+        <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+        <a href="http://localhost:3000/admin/pat_opr/pat_opr_list.php" class="btn btn-primary">View</a>
+      </div>
+    </div>
+  </div>
+  <div class="col-sm-6">
+    <div class="card">
+      <br>
+    <center><img src="/patadmt.png" style="max-width: 300px; "  class="card-img-top; " alt="DASHBORAD"></center>
+      <div class="card-body">
+        <h2 class="card-title">Admitted Patients</h2> <br>
+        <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+        <a href="http://localhost:3000/admin/pat_admit/list_pat_admit.php" class="btn btn-primary">View</a>
+      </div>
+    </div>
+  </div>
+</div>&emsp;&emsp;
+<div class="row">
+<div class="col-sm-6">
+    <div class="card"><br>
+    <center> <img src="/patdis.png" style="max-width: 22vh;" class="card-img-top" alt="DASHBORAD"></center>
+      <div class="card-body">
+        <h2 class="card-title">Discharged Patient  </h2>
+        <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+        <a href="http://localhost:3000/admin/pat_dis/list_pat_dis.php" class="btn btn-primary">View</a>
+      </div>
+    </div>
+  </div>
+  <div class="col-sm-6">
+    <div class="card"><br>
+    <center> <img src="/soon.png" style="max-width: 39vh;" class="card-img-top" alt="DASHBORAD"></center>
+      <div class="card-body">
+        <h2 class="card-title">Soon</h2><br>
+        <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+        <a href="/happy-cat.gif" class="btn btn-primary">View</a>
+      </div>
+    </div>
+  </div>  
+</div>
+</div>
+<br>
+<br>
+
 </body> 
-
+<br>
 </html>

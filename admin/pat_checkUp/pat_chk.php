@@ -38,14 +38,18 @@
   <title> PATIENT CHECK UP</title>
 </head>
 
-<body style="background-color: #67d1fe;">
-  <nav class="navbar navbar-light justify-content-center fs-3 mb-5" style="background-color: #0094FF;">
+<body style="background: #ee9ca7;  /* fallback for old browsers */
+background: -webkit-linear-gradient(to left, #ffdde1, #ee9ca7);  /* Chrome 10-25, Safari 5.1-6 */
+background: linear-gradient(to left, #ffdde1, #ee9ca7); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+">
+  <nav class="navbar navbar-light justify-content-center fs-3 mb-5" style="background-color: #ee9ca7
+;">
      PATIENT CHECK UP
   </nav>
 
   <div><center>
 
-<button class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasWithBothOptions" aria-controls="offcanvasWithBothOptions">Special Action</button>
 
 <div class="offcanvas offcanvas-start" data-bs-scroll="true" tabindex="-1" id="offcanvasWithBothOptions" aria-labelledby="offcanvasWithBothOptionsLabel">
   <div class="offcanvas-header">
@@ -88,6 +92,7 @@
     }
     ?>
     <a href="insert_pat_chck.php" class="btn btn-dark mb-3">Add New</a>
+    <a href="http://localhost:3000/admin/patient_entry/pat_main_page.php" class="btn btn-dark mb-3">Return</a>
     
 
     <table class="table table-hover text-center" >

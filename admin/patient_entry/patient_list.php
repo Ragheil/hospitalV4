@@ -38,9 +38,12 @@
   <title> Patient Entry ADMIN</title>
 </head>
 
-<body style="background-color: #67d1fe;">
-  <nav class="navbar navbar-light justify-content-center fs-3 mb-5" style="background-color: #0094FF;">
-     Patient list ADMIN SIDE
+<body style="background: #FFEFBA;  /* fallback for old browsers */
+background: -webkit-linear-gradient(to right, #FFFFFF, #FFEFBA);  /* Chrome 10-25, Safari 5.1-6 */
+background: linear-gradient(to right, #FFFFFF, #FFEFBA); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+">
+  <nav class="navbar navbar-light justify-content-center fs-3 mb-5" style="background-color: #ffffff;">
+    <h1>List of All Patients</h1>
   </nav>
 
 
@@ -49,10 +52,9 @@
 
 <div><center>
 
-<button class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasWithBothOptions" aria-controls="offcanvasWithBothOptions">Special Action</button>
 
 <div class="offcanvas offcanvas-start" data-bs-scroll="true" tabindex="-1" id="offcanvasWithBothOptions" aria-labelledby="offcanvasWithBothOptionsLabel">
-  <div class="offcanvas-header">
+  <div class="offcanvas-header">  
     <h5 class="offcanvas-title" id="offcanvasWithBothOptionsLabel">THIS IS LIIIST OF ALL PATIENTS</h5>
     <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
   </div><hr>
@@ -88,7 +90,26 @@
     }
     ?>
     <a href="insert_pat.php" class="btn btn-dark mb-3">Add New</a>
-    <a href="http://localhost:3000/admin/patient_entry/pat_main_page.php" class="btn btn-dark mb-3">BACK</a>
+    <a href="http://localhost:3000/admin/patient_entry/pat_main_page.php" class="btn btn-dark mb-3">Return</a>
+    <div class="input-group mb-2">
+    <input type="text" id="searchInput" class="form-control" placeholder="Search by Patient Name" onkeyup="searchTable()">
+  </div>
+
+
+
+  <?php
+$sql = "SELECT * FROM `pat_entry`";
+if (isset($_GET['search'])) {
+  $search = $_GET['search'];
+  // Add the search condition to the SQL query
+  $sql .= " WHERE UPPER(patient_no) LIKE UPPER('%$search%') OR UPPER(patient_name) LIKE UPPER('%$search%')";
+}
+$result = mysqli_query($conn, $sql);
+while ($row = mysqli_fetch_assoc($result)) {
+  // Remaining code...
+}
+?>
+
 
     <table class="table table-hover text-center" >
       <thead class="table-dark">
@@ -136,6 +157,29 @@
       </tbody>
     </table>
   </div>
+<!-- SEARCH -->
+<script type="text/javascript">
+function searchTable() {
+  var input, filter, table, tr, td, i, txtValue;
+  input = document.getElementById("searchInput");
+  filter = input.value.toUpperCase();
+  table = document.getElementsByTagName("table")[0];
+  tr = table.getElementsByTagName("tr");
+  for (i = 1; i < tr.length; i++) { // Start from index 1 to exclude the table header row
+    td = tr[i].getElementsByTagName("td")[1]; // Assuming Doctor ID is in the second column (index 1)
+    td2 = tr[i].getElementsByTagName("td")[2]; // Assuming Doctor Name is in the third column (index 2)
+    if (td || td2) {
+      txtValue = td.textContent || td.innerText;
+      txtValue2 = td2.textContent || td2.innerText;
+      if (txtValue.toUpperCase().indexOf(filter) > -1 || txtValue2.toUpperCase().indexOf(filter) > -1) {
+        tr[i].style.display = "";
+      } else {
+        tr[i].style.display = "none";
+      }
+    }
+  }
+}
+</script>
 
 <script type="text/javascript">
   function confirmation(ev){

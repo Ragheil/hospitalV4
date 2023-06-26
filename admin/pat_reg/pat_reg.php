@@ -38,15 +38,19 @@
   <title> PATIENT pat</title>
 </head>
 
-<body style="background-color: #67d1fe;">
-  <nav class="navbar navbar-light justify-content-center fs-3 mb-5" style="background-color: #0094FF;">
-     PATIENT pat opr
+<body style="background: #70e1f5;  /* fallback for old browsers */
+background: -webkit-linear-gradient(to left, #ffd194, #70e1f5);  /* Chrome 10-25, Safari 5.1-6 */
+background: linear-gradient(to left, #ffd194, #70e1f5); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+">
+  <nav class="navbar navbar-light justify-content-center fs-3 mb-5" style="background-color: #70e1f5
+;">
+    <h1>LISTS OF REGULAR PATIENTS</h1>
   </nav>
 
 
 <!-- -->
 
-
+ 
 
 <!-- -->
 
@@ -61,7 +65,7 @@
     }
     ?>
     <a href="insert.php" class="btn btn-dark mb-3">Add New</a>
-    
+    <a href="http://localhost:3000/admin/patient_entry/pat_main_page.php" class="btn btn-dark mb-3">Return</a>
 
     <table class="table table-hover text-center" >
       <thead class="table-dark">

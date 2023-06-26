@@ -40,10 +40,12 @@
   <title>ALL DC DOCTOR</title>
 </head>
 
-<body  style="background: rgb(238,174,202);
-background: radial-gradient(circle, rgba(238,174,202,1) 0%, rgba(148,187,233,1) 100%);">
-  <nav class="navbar navbar-light justify-content-center fs-3 mb-5" style="background-color: #0094FF;">
-  ALL DC DOCTOR
+<body  style="background: #1c92d2;  /* fallback for old browsers */
+background: -webkit-linear-gradient(to right, #f2fcfe, #1c92d2);  /* Chrome 10-25, Safari 5.1-6 */
+background: linear-gradient(to right, #f2fcfe, #1c92d2); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+">
+  <nav class="navbar navbar-light justify-content-center fs-3 mb-5" style="background-color: #1c92d2;">
+ <h1>LIST OF ALL DOCTOR ON CALL</h1>
   </nav>
 
   <div class="container">
@@ -56,10 +58,25 @@ background: radial-gradient(circle, rgba(238,174,202,1) 0%, rgba(148,187,233,1) 
     </div>';
     }
     ?>
-
-    <a href="insert_doc.php" class="btn btn-dark mb-3">Add New</a>
-    <a href="http://localhost/hospital4/admin/doctor/view_doc.php" class="btn btn-dark mb-3">BACK</a>
+<?php
+$sql = "SELECT * FROM `all_doctors`";
+if (isset($_GET['search'])) {
+  $search = $_GET['search'];
+  // Add the search condition to the SQL query
+  $sql .= " WHERE UPPER(doctor_id) LIKE UPPER('%$search%') OR UPPER(doctor_name) LIKE UPPER('%$search%')";
+}
+$result = mysqli_query($conn, $sql);
+while ($row = mysqli_fetch_assoc($result)) {
+  // Remaining code...
+}
+?>
     
+    <a href="http://localhost:3000/admin/doctor/main_doc_page.php" class="btn btn-dark mb-3">Return</a>
+    <div style="display: flex; justify-content: flex-end;">
+  <div class="input-group mb-2">
+    <input type="text" id="searchInput" class="form-control" placeholder="Search by Doctor ID or Name" onkeyup="searchTable()">
+  </div>
+</div>
     <table class="table table-hover text-center" >
       <thead class="table-dark">
         <tr>
@@ -91,7 +108,7 @@ background: radial-gradient(circle, rgba(238,174,202,1) 0%, rgba(148,187,233,1) 
             <td><?php echo $row["date_joined"] ?></td>
             <td>
             <a href="doc_on_call.php?doctor_id=<?php echo $row["doctor_id"] ?>" class="btn btn-dark mb-3">VIEW DOC<i></i></a>
-            <a href="edit_doc.php?doctor_id=<?php echo $row["doctor_id"] ?>" class="link-dark mb-3"><i class="fa-solid fa-pen-to-square fs-3 me-3"></i></a>
+           
               <a href="delete_doc.php?doctor_id=<?php echo $row["doctor_id"] ?>" class="btn btn-danger mb-2" onclick="confirmation(event)" class="link-dark"><i class="fa-solid fa-trash fs-7"></i></a>
             </td>
           </tr>
@@ -101,7 +118,29 @@ background: radial-gradient(circle, rgba(238,174,202,1) 0%, rgba(148,187,233,1) 
       </tbody>
     </table>
   </div>
-
+<!-- SEARCH -->
+<script type="text/javascript">
+function searchTable() {
+  var input, filter, table, tr, td, i, txtValue;
+  input = document.getElementById("searchInput");
+  filter = input.value.toUpperCase();
+  table = document.getElementsByTagName("table")[0];
+  tr = table.getElementsByTagName("tr");
+  for (i = 1; i < tr.length; i++) { // Start from index 1 to exclude the table header row
+    td = tr[i].getElementsByTagName("td")[1]; // Assuming Doctor ID is in the second column (index 1)
+    td2 = tr[i].getElementsByTagName("td")[2]; // Assuming Doctor Name is in the third column (index 2)
+    if (td || td2) {
+      txtValue = td.textContent || td.innerText;
+      txtValue2 = td2.textContent || td2.innerText;
+      if (txtValue.toUpperCase().indexOf(filter) > -1 || txtValue2.toUpperCase().indexOf(filter) > -1) {
+        tr[i].style.display = "";
+      } else {
+        tr[i].style.display = "none";
+      }
+    }
+  }
+}
+</script>
 <script type="text/javascript">
   function confirmation(ev){
     ev.preventDefault();

@@ -158,7 +158,7 @@ if (mysqli_query($conn, $sql)) {
                     <a style="float: right;" href="http://localhost:3000/admin/pat_reg/pat_reg.php" class="btn btn-danger">Cancel</a>
                 </div>
             </form>
-        </div>
+        </div><Br>  </Br>
     </div>
 
     <!-- Bootstrap -->

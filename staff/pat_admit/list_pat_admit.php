@@ -19,13 +19,18 @@ include "db_conn.php";
   <title> LIST OF ADDMITTED PATIENT</title>
 </head>
 
-<body style="background-color: #67d1fe;">
-  <nav class="navbar navbar-light justify-content-center fs-3 mb-5" style="background-color: #0094FF;">
-  LIST OF ADDMITTED PATIENT
+<body style="background: #2980B9;  /* fallback for old browsers */
+background: -webkit-linear-gradient(to left, #FFFFFF, #6DD5FA, #2980B9);  /* Chrome 10-25, Safari 5.1-6 */
+background: linear-gradient(to left, #FFFFFF, #6DD5FA, #2980B9); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+
+
+">
+  <nav class="navbar navbar-light justify-content-center fs-3 mb-5" style="background-color: #2980B9;">
+  <H1>LIST OF ADDMITTED PATIENT</H1>
   </nav>
   <div><center>
 
-<button class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasWithBothOptions" aria-controls="offcanvasWithBothOptions">Special Action</button>
 
 <div class="offcanvas offcanvas-start" data-bs-scroll="true" tabindex="-1" id="offcanvasWithBothOptions" aria-labelledby="offcanvasWithBothOptionsLabel">
   <div class="offcanvas-header">
@@ -64,6 +69,7 @@ include "db_conn.php";
     }
     ?>
     <a href="http://localhost/hospital4/admin/pat_admit/admit.php" class="btn btn-dark mb-3">Add New</a>
+    <a href="http://localhost:3000/admin/patient_entry/pat_main_page.php" class="btn btn-dark mb-3">Return</a>
    
 
     <table class="table table-hover text-center" >
@@ -103,7 +109,7 @@ include "db_conn.php";
             <td><?php echo $row["attendant_name"] ?></td>
             <td>
               <a href="edit_admit.php?patient_no=<?php echo $row["patient_no"] ?>" class="link-dark"><i class="fa-solid fa-pen-to-square fs-3 me-3"></i></a>
-            
+            </td>
           </tr>
         <?php
         }

@@ -40,11 +40,10 @@
 
 <body style="background-color: #67d1fe;">
   <nav class="navbar navbar-light justify-content-center fs-3 mb-5" style="background-color: #0094FF;">
-  ALL ROOM DETAILES
+  <h1>LISTS OF ALL ROOMS</h1>
   </nav>
   <div><center>
 
-<button class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasWithBothOptions" aria-controls="offcanvasWithBothOptions">Special Action</button>
 
 <div class="offcanvas offcanvas-start" data-bs-scroll="true" tabindex="-1" id="offcanvasWithBothOptions" aria-labelledby="offcanvasWithBothOptionsLabel">
   <div class="offcanvas-header">
@@ -93,7 +92,7 @@
     }
     ?>
     <a href="insert.php" class="btn btn-dark mb-3">Add New</a>
-
+    <a href="http://localhost:5173/admindashboard" class="btn btn-dark mb-3">Return</a>
    
     <table class="table table-hover text-center" >
       <thead class="table-dark">

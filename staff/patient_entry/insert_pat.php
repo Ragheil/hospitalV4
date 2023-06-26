@@ -53,7 +53,7 @@ if (isset($_POST["submit"])) {
 
 <body>
    <nav class="navbar navbar-light justify-content-center fs-3 mb-5" style="background-color: #6695B6;">
-      TAYTOL
+      <h1> PATIENT ENTRY</h1>
    </nav>
 
    <div class="container"style="border-radius: 48px;background: #bdd6c8; box-shadow:  5px 5px 10px #4c5650,-5px -5px 10px #44de02; width: 900px;">

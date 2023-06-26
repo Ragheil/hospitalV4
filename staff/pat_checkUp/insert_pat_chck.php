@@ -156,7 +156,7 @@ if (isset($_POST["submit"])) {
                     <a style="float: right;" href="pat_chk.php" class="btn btn-danger">Cancel</a>
                 </div>
             </form>
-        </div>
+        </div><br>
     </div>
 
     <!-- Bootstrap -->

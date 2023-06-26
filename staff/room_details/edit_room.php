@@ -87,7 +87,7 @@
             <div class="row mb-3">
             <div class="col-md-4">
                 <label class="form-label" for="room_no" >Room No</label>
-                <input type="text" class="form-control" name="room_no" placeholder="Patient Number" value="<?php echo $row['room_no']; ?>" >
+                <input type="text" class="form-control" name="room_no" placeholder="Patient Number" value="<?php echo $row['room_no']; ?>" disabled>
             </div>
 
 

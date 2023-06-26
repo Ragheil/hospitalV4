@@ -40,7 +40,7 @@
 
 <body style="background-color: #67d1fe;">
   <nav class="navbar navbar-light justify-content-center fs-3 mb-5" style="background-color: #0094FF;">
-     NOT VACANT
+  <H1>LISTS OF ALL NOT VACANT ROOMS</H1>
   </nav>
 
 
@@ -61,7 +61,7 @@
     }
     ?>
     <a href="insert_pat_opt.php" class="btn btn-dark mb-3">Add New</a>
-    <a href="all_room.php" class="btn btn-dark mb-3">BACK</a>
+    <a href="http://localhost:3000/admin/room_details/room_list.php" class="btn btn-dark mb-3">Reaturn</a>
 
     <table class="table table-hover text-center" >
       <thead class="table-dark">

@@ -41,9 +41,10 @@
   <title>PHP ADMIN Add Doctor</title>
 </head>
 
-<body  style="background: rgb(238,174,202);
-background: radial-gradient(circle, rgba(238,174,202,1) 0%, rgba(148,187,233,1) 100%);">
-  <nav class="navbar navbar-light justify-content-center fs-3 mb-5" style="background-color: #0094FF;">
+<body  style="background: #1c92d2;  /* fallback for old browsers */
+background: -webkit-linear-gradient(to right, #f2fcfe, #1c92d2);  /* Chrome 10-25, Safari 5.1-6 */
+background: linear-gradient(to right, #f2fcfe, #1c92d2); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */">
+  <nav class="navbar navbar-light justify-content-center fs-3 mb-5" style="background-color: #1c92d2;">
 
    <h1>LIST OF ALL DOCTORS</h1> 
   </nav>
@@ -69,27 +70,39 @@ background: radial-gradient(circle, rgba(238,174,202,1) 0%, rgba(148,187,233,1) 
     
  
 <br>
+<!-- Add the search input field -->
 
-   <a href="insert_doc.php" class="btn btn-dark mb-3"><i class="fa-solid fa-plus"></i></a>
-   <div>
 
-<button class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasWithBothOptions" aria-controls="offcanvasWithBothOptions"><i class="fa-solid fa-bars"></i></button>
+
+<?php
+$sql = "SELECT * FROM `all_doctors`";
+if (isset($_GET['search'])) {
+  $search = $_GET['search'];
+  // Add the search condition to the SQL query
+  $sql .= " WHERE UPPER(doctor_id) LIKE UPPER('%$search%') OR UPPER(doctor_name) LIKE UPPER('%$search%')";
+}
+$result = mysqli_query($conn, $sql);
+while ($row = mysqli_fetch_assoc($result)) {
+  // Remaining code...
+}
+?>
+
+<center>  <a href="insert_doc.php"  class="btn btn-success btn-lg mb-3">Add New Doctor</a></center>
+
+   <a href="http://localhost:3000/admin/doctor/main_doc_page.php" class="btn btn-dark mb-3">Return</a>
+      <div>
+      <div style="display: flex; justify-content: flex-end;">
+  <div class="input-group mb-2">
+    <input type="text" id="searchInput" class="form-control" placeholder="Search by Doctor ID or Name" onkeyup="searchTable()">
+  </div>
+</div>
 <center>
 <div class="offcanvas offcanvas-start" data-bs-scroll="true" tabindex="-1" id="offcanvasWithBothOptions" aria-labelledby="offcanvasWithBothOptionsLabel">
   <div class="offcanvas-header">  
     <h5 class="offcanvas-title" id="offcanvasWithBothOptionsLabel">THIS IS LIST OF ALL DOCTORS</h5>
 
 
-    <button  style = "display: flex;  align-items:flex-start;" type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-  </div><hr>
-  <div class="offcanvas-body">
     
-    <p></p>
-    <h1><a href="http://localhost/hospital4/admin/doctor/main_doc_page.php" class="fa-solid fa-house"></class=></a></h1>
-    <p></p><hr>
-    <a href="http://localhost:3000/admin/doctor/view_doc_reg.php" class="btn btn-dark mb-3"> REGULAR DOCTORS</a><br>
-    <p></p>
-    <a href="http://localhost/hospital4/admin/doctor/view_all_dc_doc.php" class="btn btn-dark mb-3">  DOC ON CALL DOCTORS</a><br>
   </div>
   
 </div>
@@ -136,6 +149,32 @@ background: radial-gradient(circle, rgba(238,174,202,1) 0%, rgba(148,187,233,1) 
       </tbody>
     </table>
   </div>
+
+
+<!-- SEARCH -->
+  <script type="text/javascript">
+function searchTable() {
+  var input, filter, table, tr, td, i, txtValue;
+  input = document.getElementById("searchInput");
+  filter = input.value.toUpperCase();
+  table = document.getElementsByTagName("table")[0];
+  tr = table.getElementsByTagName("tr");
+  for (i = 1; i < tr.length; i++) { // Start from index 1 to exclude the table header row
+    td = tr[i].getElementsByTagName("td")[1]; // Assuming Doctor ID is in the second column (index 1)
+    td2 = tr[i].getElementsByTagName("td")[2]; // Assuming Doctor Name is in the third column (index 2)
+    if (td || td2) {
+      txtValue = td.textContent || td.innerText;
+      txtValue2 = td2.textContent || td2.innerText;
+      if (txtValue.toUpperCase().indexOf(filter) > -1 || txtValue2.toUpperCase().indexOf(filter) > -1) {
+        tr[i].style.display = "";
+      } else {
+        tr[i].style.display = "none";
+      }
+    }
+  }
+}
+</script>
+
 
 <script type="text/javascript">
   function confirmation(ev){

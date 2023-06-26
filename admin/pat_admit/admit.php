@@ -208,8 +208,8 @@ if (isset($_POST["submit"])) {
                     <button style="float: right;" type="submit" class="btn btn-success" name="submit">Save</button>
                     <a style="float: right;" href="list_pat_admit.php" class="btn btn-danger">Cancel</a>
                 </div>
-            </form>
-        </div>
+            </form><br>
+        </div><br>
     </div>
 
     <!-- Bootstrap -->
