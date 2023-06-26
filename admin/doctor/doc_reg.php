@@ -157,7 +157,7 @@ $(document).ready(function() {
                <a href="view_doc_reg.php" class="btn btn-danger">Cancel</a>
             </div>
          </form>
-      </div>
+      </div><br>
    </div>
 
    <!-- Bootstrap -->

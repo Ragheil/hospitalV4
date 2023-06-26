@@ -44,34 +44,14 @@
 <body  style="background: rgb(238,174,202);
 background: radial-gradient(circle, rgba(238,174,202,1) 0%, rgba(148,187,233,1) 100%);">
   <nav class="navbar navbar-light justify-content-center fs-3 mb-5" style="background-color: #0094FF;">
-   LIIIST OF ALL DOCTORS
+
+   <h1>LIST OF ALL DOCTORS</h1> 
   </nav>
 
 
 <div>
 
-<div><center>
 
-<button class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasWithBothOptions" aria-controls="offcanvasWithBothOptions">Enable both scrolling & backdrop</button>
-
-<div class="offcanvas offcanvas-start" data-bs-scroll="true" tabindex="-1" id="offcanvasWithBothOptions" aria-labelledby="offcanvasWithBothOptionsLabel">
-  <div class="offcanvas-header">
-    <h5 class="offcanvas-title" id="offcanvasWithBothOptionsLabel">THIS IS LIIIST OF ALL DOCTORS</h5>
-    <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-  </div><hr>
-  <div class="offcanvas-body">
-    
-    <p>BACK TO HOME PAGE</p>
-    <a href="http://localhost/hospital4/admin/doctor/main_doc_page.php" class="btn btn-dark mb-3">BACK</a>
-    <p>VIEW ALL REGULAR DOCTORSE</p>
-    <a href="http://localhost:3000/admin/doctor/view_doc_reg.php" class="btn btn-dark mb-3"> REGULAR DOCTORS</a>
-    <p>VIEW ALL DOC ON CALL DOCTORS</p>
-    <a href="http://localhost/hospital4/admin/doctor/view_all_dc_doc.php" class="btn btn-dark mb-3">  DOC ON CALL DOCTORS</a>
-  </div>
-  
-</div>
-</div>
-</center>
 </div>
 
 
@@ -86,8 +66,34 @@ background: radial-gradient(circle, rgba(238,174,202,1) 0%, rgba(148,187,233,1) 
     </div>';
     }
     ?>
-    <a href="insert_doc.php" class="btn btn-dark mb-3">Add New</a>
     
+ 
+<br>
+
+   <a href="insert_doc.php" class="btn btn-dark mb-3"><i class="fa-solid fa-plus"></i></a>
+   <div>
+
+<button class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasWithBothOptions" aria-controls="offcanvasWithBothOptions"><i class="fa-solid fa-bars"></i></button>
+<center>
+<div class="offcanvas offcanvas-start" data-bs-scroll="true" tabindex="-1" id="offcanvasWithBothOptions" aria-labelledby="offcanvasWithBothOptionsLabel">
+  <div class="offcanvas-header">  
+    <h5 class="offcanvas-title" id="offcanvasWithBothOptionsLabel">THIS IS LIST OF ALL DOCTORS</h5>
+
+
+    <button  style = "display: flex;  align-items:flex-start;" type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+  </div><hr>
+  <div class="offcanvas-body">
+    
+    <p></p>
+    <h1><a href="http://localhost/hospital4/admin/doctor/main_doc_page.php" class="fa-solid fa-house"></class=></a></h1>
+    <p></p><hr>
+    <a href="http://localhost:3000/admin/doctor/view_doc_reg.php" class="btn btn-dark mb-3"> REGULAR DOCTORS</a><br>
+    <p></p>
+    <a href="http://localhost/hospital4/admin/doctor/view_all_dc_doc.php" class="btn btn-dark mb-3">  DOC ON CALL DOCTORS</a><br>
+  </div>
+  
+</div>
+</div> 
 
     <table class="table table-hover text-center" >
       <thead class="table-dark">

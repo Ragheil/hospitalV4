@@ -111,7 +111,10 @@ $(document).ready(function() {
 
 </head>
 
-<body style="background: linear-gradient(90deg, #efd5ff 0%, #515ada 100%);">
+<body style="background: #7F7FD5;  /* fallback for old browsers */
+background: -webkit-linear-gradient(to right, #91EAE4, #86A8E7, #7F7FD5);  /* Chrome 10-25, Safari 5.1-6 */
+background: linear-gradient(to right, #91EAE4, #86A8E7, #7F7FD5); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+">
    <nav class="navbar navbar-light justify-content-center fs-3 mb-5" style="background-color: #88c4f1;">
      EDIT DOCTOR ADMIN SIDE
    </nav>
@@ -206,6 +209,7 @@ $(document).ready(function() {
             <div><br>
                <button type="submit" class="btn btn-success" name="submit">Save</button>
                <a href="view_doc.php" class="btn btn-danger">Cancel</a>
+               
             </div>
          </form>
       </div>
