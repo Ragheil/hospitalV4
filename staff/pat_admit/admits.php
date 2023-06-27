@@ -38,7 +38,7 @@ if (isset($_POST["submit"])) {
             VALUES ('$patient_no','$advance_payment','$mode_of_payment','$room_no','$department_name','$date_of_admission','$initial_condition','$diagnosis','$treatment','$doctor_no','$attendant_name')";
 
     if (mysqli_query($conn, $sql)) {
-        header("Location: list_pat_admit.php?msg=New record created successfully");
+        header("Location: lists_pat_admit.php?msg=New record created successfully");
         exit;
     } else {
         echo "Failed: " . mysqli_error($conn);
@@ -206,7 +206,7 @@ if (isset($_POST["submit"])) {
                 </div>
                 <div><br>
                     <button style="float: right;" type="submit" class="btn btn-success" name="submit">Save</button>
-                    <a style="float: right;" href="list_pat_admit.php" class="btn btn-danger">Cancel</a>
+                    <a style="float: right;" href="lists_pat_admit.php" class="btn btn-danger">Cancel</a>
                 </div>
             </form><br>
         </div><br>

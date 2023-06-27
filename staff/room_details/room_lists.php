@@ -64,7 +64,7 @@ background: linear-gradient(to right, #5B86E5, #36D1DC); /* W3C, IE 10+/ Edge, F
       <div class="card-body">
         <h2 class="card-title"><p>Go to Main Dashboard</p> </h2>
         <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-        <a href="http://localhost:5173/admindashboard" class="btn btn-primary">View</a>
+        <a href="http://localhost:5173/staffdashboard" class="btn btn-primary">View</a>
       </div>
     </div>
   </div>
@@ -75,7 +75,7 @@ background: linear-gradient(to right, #5B86E5, #36D1DC); /* W3C, IE 10+/ Edge, F
       <div class="card-body">
         <h2 class="card-title">View All Vacant Rooms</h2>
         <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-        <a href="http://localhost:3000/admin/room_details/vacant_rooms.php" class="btn btn-primary">View</a>
+        <a href="http://localhost:3000/staff/room_details/vacant_rooms.php" class="btn btn-primary">View</a>
       </div>
     </div>
   </div>
@@ -87,7 +87,7 @@ background: linear-gradient(to right, #5B86E5, #36D1DC); /* W3C, IE 10+/ Edge, F
       <div class="card-body">
         <h2 class="card-title">View All not Vacant Rooms  </h2>
         <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-        <a href="http://localhost:3000/admin/room_details/not_vacant_room.php" class="btn btn-primary">View</a>
+        <a href="http://localhost:3000/staff/room_details/not_vacants_room.php" class="btn btn-primary">View</a>
       </div>
     </div>
   </div>
@@ -97,7 +97,7 @@ background: linear-gradient(to right, #5B86E5, #36D1DC); /* W3C, IE 10+/ Edge, F
       <div class="card-body">
         <h2 class="card-title">List of All Rooms</h2><br>
         <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-        <a href="http://localhost:3000/admin/room_details/all_room.php" class="btn btn-primary">View</a>
+        <a href="http://localhost:3000/staff/room_details/all_rooms.php" class="btn btn-primary">View</a>
       </div>
     </div>
   </div>

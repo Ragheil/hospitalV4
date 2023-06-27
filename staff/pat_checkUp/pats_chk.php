@@ -35,13 +35,19 @@
   <!-- Font Awesome -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
-  <title> ALL ROOM DETAILES</title>
+  <title> PATIENT CHECK UP</title>
 </head>
 
-<body style="background-color: #67d1fe;">
-  <nav class="navbar navbar-light justify-content-center fs-3 mb-5" style="background-color: #0094FF;">
-  <h1>LISTS OF ALL ROOMS</h1>
+<body style="background: #ee9ca7;  /* fallback for old browsers */
+background: -webkit-linear-gradient(to left, #ffdde1, #ee9ca7);  /* Chrome 10-25, Safari 5.1-6 */
+background: linear-gradient(to left, #ffdde1, #ee9ca7); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+">
+  <nav class="navbar navbar-light justify-content-center fs-3 mb-5" style="background-color: #ee9ca7
+;">
+     PATIENT CHECK UP
   </nav>
+
   <div><center>
 
 
@@ -53,28 +59,22 @@
   <div class="offcanvas-body">
     
     <p>BACK TO HOME PAGE</p>
-    <a href="http://localhost:5173/admindashboard" class="btn btn-dark mb-3">BACK</a>
+    <a href="http://localhost:3000/admin/patient_entry/pats_main_page.php" class="btn btn-dark mb-3">BACK</a>
     <p>ADD ADMIT PATIENT</p>
-    <a href="http://localhost:3000/admin/pat_admit/list_pat_admit.php" class="btn btn-dark mb-3"> VIEW ADMITTED PATIENT</a>
+    <a href="http://localhost:3000/admin/pat_admit/lists_pat_admit.php" class="btn btn-dark mb-3"> VIEW ADMITTED PATIENT</a>
     <p>VIEW ALL PATIENT CHECK UP</p>
-    <a href="http://localhost:3000/admin/pat_checkUp/pat_chk.php" class="btn btn-dark mb-3"> PATIENT CHECK UP</a>
+    <a href="http://localhost:3000/admin/pat_checkUp/pats_chk.php" class="btn btn-dark mb-3"> PATIENT CHECK UP</a>
     <p>VIEW DISCHARGED PATIENT</p>
-    <a href="http://localhost:3000/admin/pat_dis/list_pat_dis.php" class="btn btn-dark mb-3"> DISCHARGED PATIENT</a>
-    <p>VIEW ALL DOC ON CALL DOCTORS</p>
-    <a href="http://localhost:3000/admin/pat_admit/list_pat_admit.php" class="btn btn-dark mb-3"> ADDMITTED PATIENT</a>
- <br><hr>
-    <p>VIEW NOT VACANT ROOM</p>
-    <a href="http://localhost:3000/admin/room_details/not_vacant_room.php" class="btn btn-dark mb-3"> NOT VACANT ROOM</a>
-    <p>VIEW VACANT ROOM</p>
-    <a href="http://localhost:3000/admin/room_details/vacant_rooms.php" class="btn btn-dark mb-3">  VACANT ROOM</a>
- <br><hr>
+    <a href="http://localhost:3000/admin/pat_dis/lists_pat_dis.php" class="btn btn-dark mb-3"> DISCHARGED PATIENT</a>
+    <p>VIEW ALL PAT OPR</p>
+    <a href="http://localhost:3000/admin/pat_admit/lists_pat_admit.php" class="btn btn-dark mb-3"> PAT OPR</a>
+  
 
 </div>
   
 </div>
 </div>
 </center>
-
 <!-- -->
 
 
@@ -91,37 +91,36 @@
     </div>';
     }
     ?>
-    <a href="insert.php" class="btn btn-dark mb-3">Add New</a>
-    <a href="http://localhost:5173/admindashboard" class="btn btn-dark mb-3">Return</a>
-   
+    <a href="inserts_pat_chck.php" class="btn btn-dark mb-3">Add New</a>
+    <a href="http://localhost:3000/staff/patient_entry/pats_main_page.php" class="btn btn-dark mb-3">Return</a>
+    
+
     <table class="table table-hover text-center" >
       <thead class="table-dark">
         <tr>
-          
-          <th scope="col">Room no</th>
-          <th scope="col">Room type</th>
-          <th scope="col">Status</th>
+          <th scope="col">Patient No</th>
+          <th scope="col">Doctoc No</th>
+          <th scope="col">Date of Check up</th>
+          <th scope="col">Diagnosis</th>
+          <th scope="col">Treatment</th>
           <th scope="col">Action</th>
         </tr>
       </thead>
       <tbody>
         <?php
-        $sql = "SELECT * FROM `room_details`";
+        $sql = "SELECT * FROM `pat_chkup`";
         $result = mysqli_query($conn, $sql);
         while ($row = mysqli_fetch_assoc($result)) {
         ?>
           <tr>
-           
-            <td><?php echo $row["room_no"] ?></td>
-            <td><?php echo $row["room_type"] ?></td>
-            <td><?php echo $row["status"] ?></td>
-            
-
+            <td><?php echo $row["patient_no"] ?></td>
+            <td><?php echo $row["doctor_no"] ?></td>
+            <td><?php echo $row["date_of_chkup"] ?></td>
+            <td><?php echo $row["diagnosis"] ?></td>
+            <td><?php echo $row["treatment"] ?></td>
             
             <td>
-            <a href="edit_room.php?room_no=<?php echo $row['room_no']; ?>" class="link-dark"><i class="fa-solid fa-pen-to-square fs-2 me-3"></i></a>
-
-             
+              <a href="pats_chks_edit.php?patient_no=<?php echo $row["patient_no"] ?>" class="link-dark"><i class="fa-solid fa-pen-to-square fs-3 me-3"></i></a>
             </td>
           </tr>
         <?php

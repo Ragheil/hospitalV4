@@ -38,19 +38,47 @@
   <title> PATIENT pat</title>
 </head>
 
-<body style="background: #70e1f5;  /* fallback for old browsers */
-background: -webkit-linear-gradient(to left, #ffd194, #70e1f5);  /* Chrome 10-25, Safari 5.1-6 */
-background: linear-gradient(to left, #ffd194, #70e1f5); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+<body style="background: #8e9eab;  /* fallback for old browsers */
+background: -webkit-linear-gradient(to left, #eef2f3, #8e9eab);  /* Chrome 10-25, Safari 5.1-6 */
+background: linear-gradient(to left, #eef2f3, #8e9eab); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 ">
-  <nav class="navbar navbar-light justify-content-center fs-3 mb-5" style="background-color: #70e1f5
+  <nav class="navbar navbar-light justify-content-center fs-3 mb-5" style="background-color: #8e9eab
 ;">
-    <h1>LISTS OF REGULAR PATIENTS</h1>
+     <H1>PATIENT OPR</H1>
   </nav>
+  <div><center>
+ 
 
+<div class="offcanvas offcanvas-start" data-bs-scroll="true" tabindex="-1" id="offcanvasWithBothOptions" aria-labelledby="offcanvasWithBothOptionsLabel">
+  <div class="offcanvas-header">
+    <h5 class="offcanvas-title" id="offcanvasWithBothOptionsLabel">THIS IS LIIIST OF ALL PATIENTS</h5>
+    <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+  </div><hr>
+  <div class="offcanvas-body">
+    
+    <p>BACK TO HOME PAGE</p>
+    <a href="http://localhost:3000/admin/patient_entry/pat_main_page.php" class="btn btn-dark mb-3">BACK</a>
+    <p>ADD ADMIT PATIENT</p>
+    <a href="http://localhost:3000/admin/pat_admit/list_pat_admit.php" class="btn btn-dark mb-3"> VIEW ADMITTED PATIENT</a>
+    <p>VIEW ALL PATIENT CHECK UP</p>
+    <a href="http://localhost:3000/admin/pat_checkUp/pat_chk.php" class="btn btn-dark mb-3"> PATIENT CHECK UP</a>
+    <p>VIEW DISCHARGED PATIENT</p>
+    <a href="http://localhost:3000/admin/pat_dis/list_pat_dis.php" class="btn btn-dark mb-3"> DISCHARGED PATIENT</a>
+    <p>VIEW ALL PAT OPR</p>
+    <a href="http://localhost:3000/admin/pat_admit/list_pat_admit.php" class="btn btn-dark mb-3"> PAT OPR</a>
+    <p>VIEW ALL PAT REG</p>
+    <a href="http://localhost:3000/admin/pat_reg/pat_reg.php" class="btn btn-dark mb-3"> PAT REG</a>
+  
+
+</div>
+  
+</div>
+</div>
+</center>
 
 <!-- -->
 
- 
+
 
 <!-- -->
 
@@ -64,37 +92,46 @@ background: linear-gradient(to left, #ffd194, #70e1f5); /* W3C, IE 10+/ Edge, Fi
     </div>';
     }
     ?>
-    <a href="insert.php" class="btn btn-dark mb-3">Add New</a>
-    <a href="http://localhost:3000/admin/patient_entry/pat_main_page.php" class="btn btn-dark mb-3">Return</a>
+    <a href="inserts_pat_opt.php" class="btn btn-dark mb-3">Add New</a>
+    <a href="http://localhost:3000/staff/patient_entry/pats_main_page.php" class="btn btn-dark mb-3">Return</a>
 
     <table class="table table-hover text-center" >
       <thead class="table-dark">
         <tr>
           <th scope="col">Patient No</th>
-          <th scope="col">Date of Visit</th>
-          <th scope="col">Diagnosis</th>
-          <th scope="col">Treatment</th>
-          <th scope="col">Medicine Recommended</th>
-          <th scope="col">Status of Treatment</th>
+          <th scope="col">Date of Admission</th>
+          <th scope="col">Date of Operationp</th>
+          <th scope="col">Doctor No</th>
+          <th scope="col">No of Operation Theater</th>
+          <th scope="col">Type of Operation</th>
+          <th scope="col">Patient Condition Before</th>
+          <th scope="col">Patient Condition After</th>
+          <th scope="col">Treatment Advice</th>
           <th scope="col">Action</th>
         </tr>
       </thead>
       <tbody>
         <?php
-        $sql = "SELECT * FROM `pat_reg`";
+        $sql = "SELECT * FROM `pat_opr`";
         $result = mysqli_query($conn, $sql);
         while ($row = mysqli_fetch_assoc($result)) {
         ?>
           <tr>
             <td><?php echo $row["patient_no"] ?></td>
-            <td><?php echo $row["date_of_visit"] ?></td>
-            <td><?php echo $row["diagnosis"] ?></td>
-            <td><?php echo $row["treatment"] ?></td>
-            <td><?php echo $row["medicine_recommended"] ?></td>
-            <td><?php echo $row["status_of_treatment"] ?></td>
+            <td><?php echo $row["date_of_admission"] ?></td>
+            <td><?php echo $row["date_of_operation"] ?></td>
+            <td><?php echo $row["doctor_no"] ?></td>
+            <td><?php echo $row["no_of_operation_theater"] ?></td>
+            <td><?php echo $row["type_of_operation"] ?></td>
+            <td><?php echo $row["patient_condition_before_opr"] ?></td>
+            <td><?php echo $row["patient_condition_after_opr"] ?></td>
+            <td><?php echo $row["treatment_advice"] ?></td>
+            
+
             
             <td>
-              <a href="edit.php?patient_no=<?php echo $row['patient_no']; ?>" class="link-dark"><i class="fa-solid fa-pen-to-square fs-3 me-3"></i></a>
+            <a href="edits_opr.php?patient_no=<?php echo $row['patient_no']; ?>" class="link-dark"><i class="fa-solid fa-pen-to-square fs-3 me-3"></i></a>
+           
             </td>
           </tr>
         <?php

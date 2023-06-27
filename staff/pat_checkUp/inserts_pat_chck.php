@@ -34,7 +34,7 @@ if (isset($_POST["submit"])) {
             VALUES ('$patient_no','$doctor_no','$date_of_chkup','$diagnosis','$treatment')";
 
     if (mysqli_query($conn, $sql)) {
-        header("Location: http://localhost:3000/admin/pat_checkUp/pat_chk.php?msg=New record created successfully");
+        header("Location: http://localhost:3000/staff/pat_checkUp/pats_chk.php?msg=New record created successfully");
         exit;
     } else {
         echo "Failed: " . mysqli_error($conn);
@@ -153,7 +153,7 @@ if (isset($_POST["submit"])) {
                
                 <div><br>
                     <button style="float: right;" type="submit" class="btn btn-success" name="submit">Save</button>
-                    <a style="float: right;" href="pat_chk.php" class="btn btn-danger">Cancel</a>
+                    <a style="float: right;" href="pats_chk.php" class="btn btn-danger">Cancel</a>
                 </div>
             </form>
         </div><br>

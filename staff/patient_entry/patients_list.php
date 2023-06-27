@@ -61,15 +61,15 @@ background: linear-gradient(to right, #FFFFFF, #FFEFBA); /* W3C, IE 10+/ Edge, F
   <div class="offcanvas-body">
     
     <p>BACK TO HOME PAGE</p>
-    <a href="http://localhost:3000/admin/patient_entry/pat_main_page.php" class="btn btn-dark mb-3">BACK</a>
+    <a href="http://localhost:3000/staff/patient_entry/pats_main_page.php" class="btn btn-dark mb-3">BACK</a>
     <p>ADD ADMIT PATIENT</p>
-    <a href="http://localhost:3000/admin/pat_admit/list_pat_admit.php" class="btn btn-dark mb-3"> VIEW ADMITTED PATIENT</a>
+    <a href="http://localhost:3000/staff/pat_admit/lists_pat_admit.php" class="btn btn-dark mb-3"> VIEW ADMITTED PATIENT</a>
     <p>VIEW ALL PATIENT CHECK UP</p>
-    <a href="http://localhost:3000/admin/pat_checkUp/pat_chk.php" class="btn btn-dark mb-3"> PATIENT CHECK UP</a>
+    <a href="http://localhost:3000/staff/pat_checkUp/pats_chk.php" class="btn btn-dark mb-3"> PATIENT CHECK UP</a>
     <p>VIEW DISCHARGED PATIENT</p>
-    <a href="http://localhost:3000/admin/pat_dis/list_pat_dis.php" class="btn btn-dark mb-3"> DISCHARGED PATIENT</a>
+    <a href="http://localhost:3000/staff/pat_dis/lists_pat_dis.php" class="btn btn-dark mb-3"> DISCHARGED PATIENT</a>
     <p>VIEW ALL DOC ON CALL DOCTORS</p>
-    <a href="http://localhost:3000/admin/pat_admit/list_pat_admit.php" class="btn btn-dark mb-3"> ADDMITTED PATIENT</a>
+    <a href="http://localhost:3000/staff/pat_admit/lists_pat_admit.php" class="btn btn-dark mb-3"> ADDMITTED PATIENT</a>
   </div>
   
 </div>
@@ -89,8 +89,8 @@ background: linear-gradient(to right, #FFFFFF, #FFEFBA); /* W3C, IE 10+/ Edge, F
     </div>';
     }
     ?>
-    <a href="insert_pat.php" class="btn btn-dark mb-3">Add New</a>
-    <a href="http://localhost:3000/admin/patient_entry/pat_main_page.php" class="btn btn-dark mb-3">Return</a>
+    <a href="inserts_pat.php" class="btn btn-dark mb-3">Add New</a>
+    <a href="http://localhost:3000/staff/patient_entry/pats_main_page.php" class="btn btn-dark mb-3">Return</a>
     <div class="input-group mb-2">
     <input type="text" id="searchInput" class="form-control" placeholder="Search by Patient Name" onkeyup="searchTable()">
   </div>
@@ -147,7 +147,7 @@ while ($row = mysqli_fetch_assoc($result)) {
             <td><?php echo $row["diagnosis"] ?></td>
             <td><?php echo $row["department_name"] ?></td>
             <td>
-              <a href="edit_pat.php?patient_no=<?php echo $row["patient_no"] ?>" class="link-dark"><i class="fa-solid fa-pen-to-square fs-3 me-3"></i></a>
+              <a href="edits_pat.php?patient_no=<?php echo $row["patient_no"] ?>" class="link-dark"><i class="fa-solid fa-pen-to-square fs-3 me-3"></i></a>
             </td>
           </tr>
         <?php

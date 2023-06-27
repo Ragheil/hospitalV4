@@ -23,7 +23,7 @@ if (isset($_POST["submit"])) {
   $result = mysqli_query($conn, $sql);
 
   if ($result) {
-    header("Location: patient_list.php?msg=Data updated successfully");
+    header("Location: patients_list.php?msg=Data updated successfully");
   } else {
     echo "Failed: " . mysqli_error($conn);
     echo "SQL Query: " . $sql;
@@ -174,7 +174,7 @@ if (isset($_POST["submit"])) {
                 
             <div><br>
                <button type="submit" class="btn btn-success" name="submit">Update</button>
-               <a href="patient_list.php" class="btn btn-danger">Cancel</a>
+               <a href="patients_list.php" class="btn btn-danger">Cancel</a>
             </div>
          </form>
       </div>

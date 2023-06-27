@@ -1,28 +1,53 @@
+
 <?php
-include "db_conn.php";
+ // Allow requests from a specific origin
+ header("Access-Control-Allow-Origin: http://localhost:5174");
+ 
+ // Allow specific HTTP methods
+ header("Access-Control-Allow-Methods: GET, POST, OPTIONS");
+ 
+ // Allow specific headers
+ header("Access-Control-Allow-Headers: Content-Type");
+ 
+ // Allow credentials (if needed)
+ header("Access-Control-Allow-Credentials: true");
+ 
+ // Handle preflight OPTIONS request
+ if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') {
+     // Return early for preflight request
+     exit;
+ }
+ 
+ // Rest of your PHP code goes here...
+ include("db_conn.php");
+
+
+
 // Check if the form is submitted
 if (isset($_POST['submit'])) {
     // Retrieve the form data
     $patient_no = $_POST['patient_no'];
-    $treatment_given = $_POST['treatment_given'];
-    $treatment_advice = $_POST['treatment_advice'];
-    $payment_made = $_POST['payment_made'];
-    $mode_of_payment = $_POST['mode_of_payment'];
-    $date_of_discharged = $_POST['date_of_discharged'];
+    $date_of_visit = $_POST['date_of_visit'];
+    $diagnosis = $_POST['diagnosis'];
+    $treatment = $_POST['treatment'];
+    $medicine_recommended = $_POST['medicine_recommended'];
+    $status_of_treatment = $_POST['status_of_treatment'];
+   
+    
 
     // Insert the data into the database
     include "db_conn.php"; // Include your database connection file
 
     // Prepare the SQL statement
-    $sql = "INSERT INTO pat_dis (patient_no, treatment_given, treatment_advice, payment_made, mode_of_payment, date_of_discharged) 
-    VALUES ('$patient_no', '$treatment_given', '$treatment_advice', '$payment_made', '$mode_of_payment', '$date_of_discharged')";
+    $sql = "INSERT INTO pat_reg (patient_no, date_of_visit, diagnosis,  treatment, medicine_recommended, status_of_treatment) 
+    VALUES ('$patient_no', '$date_of_visit', '$diagnosis', '$treatment', '$medicine_recommended', '$status_of_treatment')";
 
-    if (mysqli_query($conn, $sql)) {
-        header("Location: list_pat_dis.php?msg=New record created successfully");
-        exit;
-    } else {
-        echo "Failed: " . mysqli_error($conn);
-    }
+if (mysqli_query($conn, $sql)) {
+    header("Location: pats_reg.php?msg=New record created successfully");
+    exit;
+} else {
+    echo "Failed: " . mysqli_error($conn);
+}
 }
 ?>
 
@@ -49,18 +74,31 @@ if (isset($_POST['submit'])) {
         integrity="sha512-aVKKRRi/Q/YV+4mjoKBsE4x3H+BkegoM/em46NNlCqNTmUYADjBbeNefNxYV7giUp0VxICtqdrbqU7iVaeZNXA=="
         crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
-    <title>PAT DIS</title>
+    <title>PAT OPERATION</title>
+
+    <script>
+        $(document).ready(function () {
+            // Add event listener to the dropdown
+            $("#patient_no").change(function () {
+                // Get the selected option value
+                var selectedOption = $(this).val();
+
+                // Set the value of the textbox
+                $("#myTextbox").val(selectedOption);
+            });
+        });
+    </script>
 </head>
 
 <body style="background: linear-gradient(90deg, #efd5ff 0%, #515ada 100%);">
     <nav class="navbar navbar-light justify-content-center fs-3 mb-5" style="background-color: #88c4f1;">
-        PAT DIS
+        PAT OPERATION
     </nav>
 
     <div class="container"
         style="border-radius: 48px;background: #88c4f1; box-shadow:  5px 5px 10px #4c5650,-5px -5px 10px #0079db; width: 900px;">
         <div class="text-center mb-4"><br>
-            <h1>PAT DIS</h1>
+            <h1>PAT OPERATION</h1>
             <p class="text-muted"> Complete the form </p>
         </div>
 
@@ -77,50 +115,54 @@ if (isset($_POST['submit'])) {
                         <label class="form-label" for="patient_no"> Patient Number </label>
                         <select class="form-select" name="patient_no" id="patient_no">
                             <?php while ($rows = mysqli_fetch_array($result)) { ?>
-                                <option value="<?php echo $rows['patient_no']; ?>">
-                                    <?php echo $rows['patient_no']; ?> • <?php echo $rows['patient_name']; ?>
-                                </option>
+                            <option value="<?php echo $rows['patient_no']; ?>">
+                                <?php echo $rows['patient_no']; ?> • <?php echo $rows['patient_name']; ?>
+                            </option>
                             <?php } ?>
                         </select>
                     </div>
 
                     <div class="col-md-4">
-                        <label class="form-label">Treatment Given</label>
-                        <input type="text" class="form-control" name="treatment_given" placeholder="Treatment Given">
+                        <label class="form-label">Date of Visit</label>
+                        <input type="date" class="form-control" name="date_of_visit" placeholder="Date of Visi">
                     </div>
 
                     <div class="col-md-4">
-                        <label class="form-label">Treatment Advice</label>
-                        <input type="text" class="form-control" name="treatment_advice" placeholder="Treatment Advice">
+                        <label class="form-label">Diagnosis</label>
+                        <input type="textStatus of Treatment" class="form-control" name="diagnosis" placeholder="Diagnosis">
+                    </div>
+
+                    
+                    <div class="col-md-4">
+                        <label class="form-label">Treatment</label>
+                        <input type="text" class="form-control" name="treatment"
+                            placeholder="Treatment">
                     </div>
 
                     <div class="col-md-4">
-                        <label class="form-label">Payment Made</label>
-                        <input type="text" class="form-control" name="payment_made" placeholder="Payment Made">
+                        <label class="form-label">Medicine Recommended</label>
+                        <input type="text" class="form-control" name="medicine_recommended"
+                            placeholder="Medicine Recommended">
                     </div>
 
                     <div class="col-md-4">
-                        <label class="form-label">Mode of Payment</label>
-                        <input type="text" class="form-control" name="mode_of_payment" placeholder="Mode of Payment">
+                        <label class="form-label">Status of Treatment  </label>
+                        <input type="text" class="form-control" name="status_of_treatment"
+                            placeholder="Status of Treatment">
                     </div>
 
-                    <div class="col-md-4">
-                        <label class="form-label">Date of Discharged</label>
-                        <input type="date" class="form-control" name="date_of_discharged"
-                            placeholder="Date of Discharged">
-                    </div>
                 </div>
 
                 <div><br>
                     <button style="float: right;" type="submit" class="btn btn-success" name="submit">Save</button>
-                    <a style="float: right;" href="list_pat_dis.php" class="btn btn-danger">Cancel</a>
+                    <a style="float: right;" href="http://localhost:3000/staff/pat_reg/pats_reg.php" class="btn btn-danger">Cancel</a>
                 </div>
             </form>
-        </div>
+        </div><Br>  </Br>
     </div>
 
-     <!-- Bootstrap -->
-     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js"
+    <!-- Bootstrap -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js"
         integrity="sha512-aVKKRRi/Q/YV+4mjoKBsE4x3H+BkegoM/em46NNlCqNTmUYADjBbeNefNxYV7giUp0VxICtqdrbqU7iVaeZNXA=="
         crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 

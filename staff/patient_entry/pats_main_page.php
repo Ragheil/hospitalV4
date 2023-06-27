@@ -41,7 +41,7 @@
 </head>
 <body  style="background-image: url(/patdash.png);background-size: cover;">
 <nav class="navbar navbar-light justify-content-center fs-3 mb-5" style="background-color: #3d72b4; color: white;">
-  PATIENT MAIN PAGE
+ <h1> PATIENT MAIN PAGE (STAFF SIDE)</h1>
 </nav>
   
   <br>
@@ -55,7 +55,7 @@
       <div class="card-body">
         <h2 class="card-title"><p>Go to Main Dashboard</p> </h2>
         <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-        <a href="http://localhost:5173/admindashboard" class="btn btn-primary">View</a>
+        <a href="http://localhost:5173/staffdashboard" class="btn btn-primary">View</a>
       </div>
     </div>
   </div>
@@ -66,7 +66,7 @@
       <div class="card-body">
         <h2 class="card-title">View All&emsp;&emsp; Patient List</h2>
         <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-        <a href="http://localhost:3000/admin/patient_entry/patient_list.php" class="btn btn-primary">View</a>
+        <a href="http://localhost:3000/staff/patient_entry/patients_list.php" class="btn btn-primary">View</a>
       </div>
     </div>
   </div>
@@ -78,7 +78,7 @@
       <div class="card-body">
         <h2 class="card-title">Patient Check Up  </h2>
         <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-        <a href="http://localhost:3000/admin/pat_checkUp/pat_chk.php" class="btn btn-primary">View</a>
+        <a href="http://localhost:3000/staff/pat_checkUp/pats_chk.php" class="btn btn-primary">View</a>
       </div>
     </div>
   </div>
@@ -88,7 +88,7 @@
       <div class="card-body">
         <h2 class="card-title">Regular Patients</h2><br>
         <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-        <a href="http://localhost:3000/admin/pat_reg/pat_reg.php" class="btn btn-primary">View</a>
+        <a href="http://localhost:3000/staff/pat_reg/pats_reg.php" class="btn btn-primary">View</a>
       </div>
     </div>
   </div>  
@@ -108,7 +108,7 @@
       <div class="card-body">
         <h2 class="card-title"><p>Patient is Operated</p> </h2>
         <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-        <a href="http://localhost:3000/admin/pat_opr/pat_opr_list.php" class="btn btn-primary">View</a>
+        <a href="http://localhost:3000/staff/pat_opr/pats_opr_list.php" class="btn btn-primary">View</a>
       </div>
     </div>
   </div>
@@ -119,7 +119,7 @@
       <div class="card-body">
         <h2 class="card-title">Admitted Patients</h2> <br>
         <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-        <a href="http://localhost:3000/admin/pat_admit/list_pat_admit.php" class="btn btn-primary">View</a>
+        <a href="http://localhost:3000/staff/pat_admit/lists_pat_admit.php" class="btn btn-primary">View</a>
       </div>
     </div>
   </div>
@@ -131,7 +131,7 @@
       <div class="card-body">
         <h2 class="card-title">Discharged Patient  </h2>
         <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-        <a href="http://localhost:3000/admin/pat_dis/list_pat_dis.php" class="btn btn-primary">View</a>
+        <a href="http://localhost:3000/staff/pat_dis/lists_pat_dis.php" class="btn btn-primary">View</a>
       </div>
     </div>
   </div>

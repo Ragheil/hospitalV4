@@ -1,24 +1,5 @@
 <?php
- // Allow requests from a specific origin
- header("Access-Control-Allow-Origin: http://localhost:5174");
- 
- // Allow specific HTTP methods
- header("Access-Control-Allow-Methods: GET, POST, OPTIONS");
- 
- // Allow specific headers
- header("Access-Control-Allow-Headers: Content-Type");
- 
- // Allow credentials (if needed)
- header("Access-Control-Allow-Credentials: true");
- 
- // Handle preflight OPTIONS request
- if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') {
-     // Return early for preflight request
-     exit;
- }
- 
- // Rest of your PHP code goes here...
- include("db_conn.php");
+include "db_conn.php";
 ?>
 
 <!DOCTYPE html>
@@ -35,19 +16,19 @@
   <!-- Font Awesome -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
-  <title> PATIENT pat</title>
+  <title>  PATIENT DISCHARGED </title>
 </head>
 
-<body style="background: #8e9eab;  /* fallback for old browsers */
-background: -webkit-linear-gradient(to left, #eef2f3, #8e9eab);  /* Chrome 10-25, Safari 5.1-6 */
-background: linear-gradient(to left, #eef2f3, #8e9eab); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+<body style="background: #9796f0;  /* fallback for old browsers */
+background: -webkit-linear-gradient(to right, #fbc7d4, #9796f0);  /* Chrome 10-25, Safari 5.1-6 */
+background: linear-gradient(to right, #fbc7d4, #9796f0); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
 ">
-  <nav class="navbar navbar-light justify-content-center fs-3 mb-5" style="background-color: #8e9eab
-;">
-     <H1>PATIENT OPR</H1>
+  <nav class="navbar navbar-light justify-content-center fs-3 mb-5" style="background-color: #9796f0;">
+  <h1>LISTS OF DISCHARGED PATIENT </h1>
   </nav>
   <div><center>
- 
+
 
 <div class="offcanvas offcanvas-start" data-bs-scroll="true" tabindex="-1" id="offcanvasWithBothOptions" aria-labelledby="offcanvasWithBothOptionsLabel">
   <div class="offcanvas-header">
@@ -76,12 +57,6 @@ background: linear-gradient(to left, #eef2f3, #8e9eab); /* W3C, IE 10+/ Edge, Fi
 </div>
 </center>
 
-<!-- -->
-
-
-
-<!-- -->
-
   <div class="container">
     <?php
     if (isset($_GET["msg"])) {
@@ -92,46 +67,39 @@ background: linear-gradient(to left, #eef2f3, #8e9eab); /* W3C, IE 10+/ Edge, Fi
     </div>';
     }
     ?>
-    <a href="insert_pat_opt.php" class="btn btn-dark mb-3">Add New</a>
-    <a href="http://localhost:3000/admin/patient_entry/pat_main_page.php" class="btn btn-dark mb-3">Return</a>
+    <a href="pats_dis.php" class="btn btn-dark mb-3">Add New</a>
+    <a href="http://localhost:3000/staff/patient_entry/pats_main_page.php" class="btn btn-dark mb-3">Return</a>
 
     <table class="table table-hover text-center" >
       <thead class="table-dark">
         <tr>
           <th scope="col">Patient No</th>
-          <th scope="col">Date of Admission</th>
-          <th scope="col">Date of Operationp</th>
-          <th scope="col">Doctor No</th>
-          <th scope="col">No of Operation Theater</th>
-          <th scope="col">Type of Operation</th>
-          <th scope="col">Patient Condition Before</th>
-          <th scope="col">Patient Condition After</th>
+          <th scope="col">Treatment Given</th>
           <th scope="col">Treatment Advice</th>
+          <th scope="col">Payment Made</th>
+          <th scope="col">Mode of Payment</th>
+          <th scope="col">Date of Discharged</th>
+          
+          
           <th scope="col">Action</th>
         </tr>
       </thead>
       <tbody>
         <?php
-        $sql = "SELECT * FROM `pat_opr`";
+        $sql = "SELECT * FROM `pat_dis` ";
         $result = mysqli_query($conn, $sql);
         while ($row = mysqli_fetch_assoc($result)) {
         ?>
           <tr>
             <td><?php echo $row["patient_no"] ?></td>
-            <td><?php echo $row["date_of_admission"] ?></td>
-            <td><?php echo $row["date_of_operation"] ?></td>
-            <td><?php echo $row["doctor_no"] ?></td>
-            <td><?php echo $row["no_of_operation_theater"] ?></td>
-            <td><?php echo $row["type_of_operation"] ?></td>
-            <td><?php echo $row["patient_condition_before_opr"] ?></td>
-            <td><?php echo $row["patient_condition_after_opr"] ?></td>
+            <td><?php echo $row["treatment_given"] ?></td>
             <td><?php echo $row["treatment_advice"] ?></td>
-            
-
+            <td><?php echo $row["payment_made"] ?></td>
+            <td><?php echo $row["mode_of_payment"] ?></td>
+            <td><?php echo $row["date_of_discharged"] ?></td>
             
             <td>
-            <a href="edit_opr.php?patient_no=<?php echo $row['patient_no']; ?>" class="link-dark"><i class="fa-solid fa-pen-to-square fs-3 me-3"></i></a>
-           
+              <a href="edits.php?patient_no=<?php echo $row["patient_no"] ?>" class="link-dark"><i class="fa-solid fa-pen-to-square fs-3 me-3"></i></a>
             </td>
           </tr>
         <?php

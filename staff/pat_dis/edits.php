@@ -23,7 +23,7 @@ if (isset($_POST["submit"])) {
   $result = mysqli_query($conn, $sql);
 
   if ($result) {
-    header("Location: list_pat_dis.php?msg=Data updated successfully");
+    header("Location: lists_pat_dis.php?msg=Data updated successfully");
     exit();
   } else {
     echo "Failed: " . mysqli_error($conn);
@@ -109,7 +109,7 @@ if (isset($_POST["submit"])) {
 
         <div><br>
           <button style="float: right;" type="submit" class="btn btn-success" name="submit">Save</button>
-          <a style="float: right;" href="list_pat_dis.php" class="btn btn-danger">Cancel</a>
+          <a style="float: right;" href="lists_pat_dis.php" class="btn btn-danger">Cancel</a>
         </div>
       </form>
     </div>

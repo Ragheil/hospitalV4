@@ -60,8 +60,8 @@
     </div>';
     }
     ?>
-    <a href="insert_pat_opt.php" class="btn btn-dark mb-3">Add New</a>
-    <a href="http://localhost:3000/admin/room_details/room_list.php" class="btn btn-dark mb-3">Reaturn</a>
+    <a href="inserts_pat_opt.php" class="btn btn-dark mb-3">Add New</a>
+    <a href="http://localhost:3000/staff/room_details/room_lists.php" class="btn btn-dark mb-3">Reaturn</a>
 
     <table class="table table-hover text-center" >
       <thead class="table-dark">
@@ -88,9 +88,8 @@
 
             
             <td>
-            <a href="edit_room.php?room_no=<?php echo $row['room_no']; ?>" class="link-dark"><i class="fa-solid fa-pen-to-square fs-2 me-3"></i></a>
+            <a href="edit_rooms.php?room_no=<?php echo $row['room_no']; ?>" class="link-dark"><i class="fa-solid fa-pen-to-square fs-2 me-3"></i></a>
 
-              <a href="delete.php?room_no=<?php echo $row['room_no']; ?>" class="btn btn-danger" onclick="confirmation(event)" class="link-dark"><i class="fa-solid fa-trash fs-7"></i></a>
              
             </td>
           </tr>

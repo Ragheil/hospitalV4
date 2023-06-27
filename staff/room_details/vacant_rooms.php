@@ -38,8 +38,12 @@
   <title> VACANT</title>
 </head> 
 
-<body style="background-color: #67d1fe;">
-  <nav class="navbar navbar-light justify-content-center fs-3 mb-5" style="background-color: #0094FF;">
+<body style="background: #B2FEFA;  /* fallback for old browsers */
+background: -webkit-linear-gradient(to right, #0ED2F7, #B2FEFA);  /* Chrome 10-25, Safari 5.1-6 */
+background: linear-gradient(to right, #0ED2F7, #B2FEFA); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+">
+  <nav class="navbar navbar-light justify-content-center fs-3 mb-5" style="background-color: #0ED2F7;">
       <H1>LISTS OF ALL VACANT ROOMS</H1>
   </nav>
 
@@ -61,7 +65,7 @@
     }
     ?>
     <a href="insert_pat_opt.php" class="btn btn-dark mb-3">Add New</a>
-    <a href="http://localhost:3000/admin/room_details/room_list.php" class="btn btn-dark mb-3">Return</a>
+    <a href="http://localhost:3000/staff/room_details/room_lists.php" class="btn btn-dark mb-3">Return</a>
     
 
     <table class="table table-hover text-center" >
@@ -91,8 +95,7 @@
             <td>
             <a href="edit_room.php?room_no=<?php echo $row['room_no']; ?>" class="link-dark"><i class="fa-solid fa-pen-to-square fs-2 me-3"></i></a>
 
-              <a href="delete.php?room_no=<?php echo $row['room_no']; ?>" class="btn btn-danger" onclick="confirmation(event)" class="link-dark"><i class="fa-solid fa-trash fs-7"></i></a>
-             
+
             </td>
           </tr>
         <?php

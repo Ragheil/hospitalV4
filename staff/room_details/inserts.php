@@ -33,7 +33,7 @@ if (isset($_POST["submit"])) {
             VALUES ('$room_details','$room_type','$status')";
 
     if (mysqli_query($conn, $sql)) {
-        header("Location: all_room.php?msg=New record created successfully");
+        header("Location: all_rooms.php?msg=New record created successfully");
         exit;
     } else {
         echo "Failed: " . mysqli_error($conn);
@@ -121,7 +121,7 @@ if (isset($_POST["submit"])) {
                
                 <div><br>
                     <button style="float: right;" type="submit" class="btn btn-success" name="submit">Save</button>
-                    <a style="float: right;" href="all_room.php" class="btn btn-danger">Cancel</a>
+                    <a style="float: right;" href="all_rooms.php" class="btn btn-danger">Cancel</a>
                 </div>
             </form>
         </div>

@@ -40,17 +40,17 @@ background: linear-gradient(to left, #FFFFFF, #6DD5FA, #2980B9); /* W3C, IE 10+/
   <div class="offcanvas-body">
     
     <p>BACK TO HOME PAGE</p>
-    <a href="http://localhost:3000/admin/patient_entry/pat_main_page.php" class="btn btn-dark mb-3">BACK</a>
+    <a href="http://localhost:3000/staff/patient_entry/pat_main_page.php" class="btn btn-dark mb-3">BACK</a>
     <p>ADD ADMIT PATIENT</p>
-    <a href="http://localhost:3000/admin/pat_admit/list_pat_admit.php" class="btn btn-dark mb-3"> VIEW ADMITTED PATIENT</a>
+    <a href="http://localhost:3000/staff/pat_admit/list_pat_admit.php" class="btn btn-dark mb-3"> VIEW ADMITTED PATIENT</a>
     <p>VIEW ALL PATIENT CHECK UP</p>
-    <a href="http://localhost:3000/admin/pat_checkUp/pat_chk.php" class="btn btn-dark mb-3"> PATIENT CHECK UP</a>
+    <a href="http://localhost:3000/staff/pat_checkUp/pat_chk.php" class="btn btn-dark mb-3"> PATIENT CHECK UP</a>
     <p>VIEW DISCHARGED PATIENT</p>
-    <a href="http://localhost:3000/admin/pat_dis/list_pat_dis.php" class="btn btn-dark mb-3"> DISCHARGED PATIENT</a>
+    <a href="http://localhost:3000/staff/pat_dis/list_pat_dis.php" class="btn btn-dark mb-3"> DISCHARGED PATIENT</a>
     <p>VIEW ALL PAT OPR</p>
-    <a href="http://localhost:3000/admin/pat_admit/list_pat_admit.php" class="btn btn-dark mb-3"> PAT OPR</a>
+    <a href="http://localhost:3000/staff/pat_admit/list_pat_admit.php" class="btn btn-dark mb-3"> PAT OPR</a>
     <p>VIEW ALL PAT REG</p>
-    <a href="http://localhost:3000/admin/pat_reg/pat_reg.php" class="btn btn-dark mb-3"> PAT REG</a>
+    <a href="http://localhost:3000/staff/pat_reg/pat_reg.php" class="btn btn-dark mb-3"> PAT REG</a>
   
 
 </div>
@@ -68,8 +68,8 @@ background: linear-gradient(to left, #FFFFFF, #6DD5FA, #2980B9); /* W3C, IE 10+/
     </div>';
     }
     ?>
-    <a href="http://localhost/hospital4/admin/pat_admit/admit.php" class="btn btn-dark mb-3">Add New</a>
-    <a href="http://localhost:3000/admin/patient_entry/pat_main_page.php" class="btn btn-dark mb-3">Return</a>
+    <a href="http://localhost/hospital4/staff/pat_admit/admits.php" class="btn btn-dark mb-3">Add New</a>
+    <a href="http://localhost:3000/staff/patient_entry/pats_main_page.php" class="btn btn-dark mb-3">Return</a>
    
 
     <table class="table table-hover text-center" >
@@ -108,7 +108,7 @@ background: linear-gradient(to left, #FFFFFF, #6DD5FA, #2980B9); /* W3C, IE 10+/
             <td><?php echo $row["doctor_no"] ?></td>
             <td><?php echo $row["attendant_name"] ?></td>
             <td>
-              <a href="edit_admit.php?patient_no=<?php echo $row["patient_no"] ?>" class="link-dark"><i class="fa-solid fa-pen-to-square fs-3 me-3"></i></a>
+              <a href="edits_admit.php?patient_no=<?php echo $row["patient_no"] ?>" class="link-dark"><i class="fa-solid fa-pen-to-square fs-3 me-3"></i></a>
             </td>
           </tr>
         <?php
